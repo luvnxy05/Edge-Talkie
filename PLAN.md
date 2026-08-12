@@ -73,3 +73,21 @@ HarmonyOS NEXT 原生本地大模型聊天应用（LM Studio 风格）：
 - `DEVECO_SDK_HOME` 未设置、hdc/ohpm 不在 PATH → M0 需配置
 - 测试设备：MateBook14 鸿蒙版（MNTXM-24B，API 24）
 - MNN 源码：`~/Projects/mnn-fork`（含 `package_scripts/harmony/build.sh`）✅
+
+## 8. M0 执行记录（2026-08-12）
+
+**✅ 已完成**
+1. MNN 鸿蒙交叉编译成功：`~/Projects/mnn-fork/package_scripts/harmony/build.sh -o prebuilt/harmony` → libMNN.so（5.6MB, aarch64 ELF）
+   - 陷阱：脚本 `MNN_SEP_BUILD=OFF` 时 llm 是 OBJECT 库链入 libMNN.so，但**默认 `make` 不构建 llm 目标**，需先 `make llm` 再重链 libMNN.so（删掉 libMNN.so 强制重链）→ llvm-nm 确认 `MNN::Transformer::Llm::createLLM/forwardVec/reset/stoped` 全部导出
+   - 注意：macOS 自带 nm/readelf 不认识 OHOS ELF（显示 0 符号），必须用 SDK 的 `native/llvm/bin/llvm-nm`/`llvm-readelf`
+2. 鸿蒙工程骨架建立（复制 drive-health 模板改名）：bundleName=`io.mnnkeep.harmony`，versionName=0.1.0，删除了 ACCESS_DISK_PHY_INFO 权限
+3. 首页壳 Index.ets + EntryAbility 已替换（MNN 本地对话 + "AI 生成"显式标识角标位）
+4. 命令行构建验证：`node hvigorw.js assembleHap --mode module -p product=default -p buildMode=debug --no-daemon` → BUILD SUCCESSFUL（3s），产出 entry-default-unsigned.hap
+5. 构建环境变量（临时生效，未写入 .zshrc）：`DEVECO_SDK_HOME=~/Library/OpenHarmony/Sdk` + PATH 加 DevEco 内置 node/ohpm
+
+**⏳ 待完成（需要华为账号 GUI 操作）**
+6. **签名**：本地 OpenHarmony 签名链对 HarmonyOS NEXT 真机**必被拒**（drive-health VERIFY.md 已验证）。必须 DevEco Studio 自动签名：File → Project Structure → Signing Configs → Automatically generate signature（需登录华为开发者账号）
+7. **部署**：hdc 侧载到 MateBook14（需设备 USB/无线连接 + 开发者模式）
+8. 签名前准备：AGC 创建应用 + 设备 UDID 注册（UDID=`4D4B96028CADF247AE80E474BE94CEDA4AC26D122028E9A2A61822E79E2E1BE1` 已知）
+
+**关键文件**：prebuilt/harmony/libs/{libMNN.so, libc++_shared.so} + include/llm/{llm.hpp, reranker.hpp}（NAPI 桥接头文件就绪）
