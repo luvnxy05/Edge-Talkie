@@ -1,0 +1,8 @@
+{
+  "modelVersion": "6.1.0",
+  "description": "硬盘与电池健康查看器（鸿蒙轻量版）",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}

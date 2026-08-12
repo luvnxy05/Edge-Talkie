@@ -1,0 +1,2114 @@
+{
+  "runtimeOS": "HarmonyOS",
+  "sdkInfo": "false:23:6.1.0.105:Release",
+  "fileList": {
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.AbilityConstant.d.ts": {
+      "mtimeMs": 1786091466127.1707,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.appManager.d.ts"
+      ],
+      "parent": [
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/entryability/EntryAbility.ets",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.UIAbility.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Ability.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.EnvironmentCallback.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.UIAbility.d.ts": {
+      "mtimeMs": 1786091466070.5803,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Ability.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.AbilityConstant.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Want.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.window.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.rpc.d.ts"
+      ],
+      "parent": [
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/entryability/EntryAbility.ets",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.AbilityLifecycleCallback.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Want.d.ts": {
+      "mtimeMs": 1786085364206.04,
+      "children": [],
+      "parent": [
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/entryability/EntryAbility.ets",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.bundleManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.UIAbility.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/abilityResult.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ApplicationContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.dialogRequest.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.unifiedDataChannel.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/FormEditExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/LiveFormExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.ability.featureAbility.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/startAbilityParameter.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/embedded_component.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.hilog.d.ts": {
+      "mtimeMs": 1786087649712.7803,
+      "children": [],
+      "parent": [
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/entryability/EntryAbility.ets",
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/pages/Index.ets"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.window.d.ts": {
+      "mtimeMs": 1786091466065.196,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/BaseContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimedia.image.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.node.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.ConfigurationConstant.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.bundleManager.d.ts"
+      ],
+      "parent": [
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/entryability/EntryAbility.ets",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.UIAbility.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ApplicationContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.AbilityLifecycleCallback.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.StartOptions.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/component/navigation.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.ability.featureAbility.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.file.picker.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/folder_stack.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/nav_destination.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/navigation.d.ts"
+      ],
+      "error": false
+    },
+    "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/entryability/EntryAbility.ets": {
+      "mtimeMs": 1786526276154.4915,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.AbilityConstant.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.UIAbility.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Want.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.window.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.hilog.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.appManager.d.ts": {
+      "mtimeMs": 1786091466110.127,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ProcessInformation.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ApplicationStateObserver.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/AbilityStateData.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/AppStateData.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ProcessData.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.AbilityConstant.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ProcessInformation.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts": {
+      "mtimeMs": 1786085364131.298,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.appManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.bundleManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.window.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimedia.image.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.resourceManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.rpc.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.mediaquery.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.inspector.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.promptAction.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.router.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.observer.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/Context.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ApplicationContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/component/navigation.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.componentSnapshot.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.dragController.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.unifiedDataChannel.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/dataAbilityHelper.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.ability.featureAbility.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/app/context.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.rdb.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimodalInput.pointer.d.ts",
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/pages/Index.ets",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.file.fs.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.util.stream.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.events.emitter.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.file.picker.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.preferences.d.ts",
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/service/DeviceScanner.ets",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.file.storageStatistics.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/SceneResources.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/embedded_component.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/image.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.request.cacheDownload.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/nav_destination.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/navigation.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/pattern_lock.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/video.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.web.webview.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.security.cert.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.security.cryptoFramework.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.print.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ProcessInformation.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.appManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.bundleManager.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.appManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ApplicationContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ApplicationStateObserver.d.ts": {
+      "mtimeMs": 1786091466164.189,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/AppStateData.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/AbilityStateData.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ProcessData.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.appManager.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/AbilityStateData.d.ts": {
+      "mtimeMs": 1786091466168.0522,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.appManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ApplicationStateObserver.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/AppStateData.d.ts": {
+      "mtimeMs": 1786085364125.694,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.appManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ApplicationStateObserver.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ProcessData.d.ts": {
+      "mtimeMs": 1786091466167.649,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.appManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ApplicationStateObserver.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.bundleManager.d.ts": {
+      "mtimeMs": 1786091466027.5654,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/Metadata.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ElementName.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Want.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ApplicationInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/AbilityInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/BundleInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/HapModuleInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ExtensionAbilityInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/Skill.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ProcessInformation.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ApplicationInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/AbilityInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/BundleInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/HapModuleInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ExtensionAbilityInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.window.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.StartOptions.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/Metadata.d.ts": {
+      "mtimeMs": 1786085363976.394,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.bundleManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ApplicationInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/AbilityInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/HapModuleInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ExtensionAbilityInfo.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ElementName.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.bundleManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.CompletionHandler.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/connectOptions.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ApplicationInfo.d.ts": {
+      "mtimeMs": 1786085363976.785,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/Metadata.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/global/resource.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.bundleManager.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.bundleManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/AbilityInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/BundleInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ExtensionAbilityInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/Context.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/AbilityInfo.d.ts": {
+      "mtimeMs": 1786085363975.966,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ApplicationInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/Metadata.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.bundleManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/Skill.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.bundleManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/HapModuleInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/BundleInfo.d.ts": {
+      "mtimeMs": 1786091466042.3406,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ApplicationInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/HapModuleInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.bundleManager.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.bundleManager.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/HapModuleInfo.d.ts": {
+      "mtimeMs": 1786085363975.415,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/AbilityInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ExtensionAbilityInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/Metadata.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.bundleManager.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.bundleManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/BundleInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/AbilityStageContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ExtensionAbilityInfo.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ApplicationInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/Metadata.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.bundleManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/Skill.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.bundleManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/HapModuleInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ExtensionContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/Skill.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.bundleManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/AbilityInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ExtensionAbilityInfo.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/global/resource.d.ts": {
+      "mtimeMs": 1786085364194.435,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ApplicationInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.resourceManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.drawing.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Graphics.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/units.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Ability.d.ts": {
+      "mtimeMs": 1786091466145.6528,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.AbilityConstant.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Configuration.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.UIAbility.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts": {
+      "mtimeMs": 1786091466163.5317,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.AbilityConstant.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIServiceProxy.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIServiceExtensionConnectCallback.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimedia.image.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/AbilityInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/abilityResult.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/Context.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.dialogRequest.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/HapModuleInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.OpenLinkOptions.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Want.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.StartOptions.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Configuration.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.window.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/connectOptions.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.UIAbility.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.AtomicServiceOptions.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.ConfigurationConstant.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/AbilityStartCallback.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.UIAbility.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.observer.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/EmbeddableUIAbilityContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.rpc.d.ts": {
+      "mtimeMs": 1786091466171.0461,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.UIAbility.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimedia.image.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/connectOptions.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Configuration.d.ts": {
+      "mtimeMs": 1786085364120.124,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.ConfigurationConstant.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Ability.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.EnvironmentCallback.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/AbilityStageContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.ConfigurationConstant.d.ts": {
+      "mtimeMs": 1786085364056.663,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Configuration.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.window.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ApplicationContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIExtensionContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/BaseContext.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.window.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/Context.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/app/context.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.rdb.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.preferences.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimedia.image.d.ts": {
+      "mtimeMs": 1786091466115.5513,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.colorSpaceManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.resourceManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.rpc.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.window.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.drawableDescriptor.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.drawing.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.StartOptions.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.componentSnapshot.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.unifiedDataChannel.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/PhotoEditorExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimodalInput.pointer.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/common.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.web.webview.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts": {
+      "mtimeMs": 1786091466086.3193,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.font.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.mediaquery.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.inspector.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.promptAction.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.router.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.componentUtils.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.node.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.animator.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.observer.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.animator.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.measure.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.componentSnapshot.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.dragController.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimedia.image.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimodalInput.pointer.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.window.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/BuilderNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/FrameNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/ComponentContent.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/NodeController.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/XComponentNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.node.d.ts": {
+      "mtimeMs": 1786091466210.4216,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/BuilderNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/BuilderNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/BuilderNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/BuilderNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/NodeController.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/FrameNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/FrameNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Graphics.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Graphics.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/RenderNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/XComponentNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Content.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/ComponentContent.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/ComponentContent.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/NodeContent.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.window.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.observer.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/content_slot.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/node_container.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.colorSpaceManager.d.ts": {
+      "mtimeMs": 1786091466187.0647,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimedia.image.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.drawing.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.componentSnapshot.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.resourceManager.d.ts": {
+      "mtimeMs": 1786091466201.2976,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/global/rawFileDescriptor.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/global/resource.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.drawableDescriptor.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimedia.image.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/Context.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/global/rawFileDescriptor.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.resourceManager.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.drawableDescriptor.d.ts": {
+      "mtimeMs": 1786091466160.7632,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimedia.image.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.drawing.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.resourceManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/image.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/tab_content.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.drawing.d.ts": {
+      "mtimeMs": 1786091466044.8494,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimedia.image.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.common2D.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.colorSpaceManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/global/resource.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.drawableDescriptor.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Graphics.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/canvas.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/image.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.text.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.common2D.d.ts": {
+      "mtimeMs": 1786089028378.8262,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.drawing.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Graphics.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.text.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.font.d.ts": {
+      "mtimeMs": 1786091466118.7905,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.mediaquery.d.ts": {
+      "mtimeMs": 1786085364155.426,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.inspector.d.ts": {
+      "mtimeMs": 1786091466179.8499,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.promptAction.d.ts": {
+      "mtimeMs": 1786091466103.4634,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/action_sheet.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/alert_dialog.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/common.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/custom_dialog_controller.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.router.d.ts": {
+      "mtimeMs": 1786089028309.8577,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts",
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/pages/Index.ets"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.componentUtils.d.ts": {
+      "mtimeMs": 1786091466111.3916,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.animator.d.ts": {
+      "mtimeMs": 1786091466021.233,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.observer.d.ts": {
+      "mtimeMs": 1786091466013.7622,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/component/navigation.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.node.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.measure.d.ts": {
+      "mtimeMs": 1786085364010.223,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.componentSnapshot.d.ts": {
+      "mtimeMs": 1786091466209.1572,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimedia.image.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.colorSpaceManager.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.dragController.d.ts": {
+      "mtimeMs": 1786091466059.9187,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.unifiedDataChannel.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts": {
+      "mtimeMs": 1786091466203.4106,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/AbilityStageContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ApplicationContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/BaseContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/Context.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/FormExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/FormEditExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/LiveFormExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/EventHub.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/VpnExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/EmbeddableUIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/PhotoEditorExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIServiceProxy.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIServiceExtensionConnectCallback.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/abilityResult.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/AbilityStartCallback.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/connectOptions.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/dataAbilityHelper.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts",
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/pages/Index.ets",
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/pages/HistoryPage.ets"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimodalInput.pointer.d.ts": {
+      "mtimeMs": 1786091466110.981,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimedia.image.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/BuilderNode.d.ts": {
+      "mtimeMs": 1786091466192.7505,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/FrameNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Graphics.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.node.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/ComponentContent.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/XComponentNode.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/NodeController.d.ts": {
+      "mtimeMs": 1786091466192.1938,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/FrameNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Graphics.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.node.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/FrameNode.d.ts": {
+      "mtimeMs": 1786091466199.872,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/RenderNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Graphics.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Graphics.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/ComponentContent.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.node.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/BuilderNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/NodeController.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/XComponentNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/NodeContent.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/canvas.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Graphics.d.ts": {
+      "mtimeMs": 1786091466195.406,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.drawing.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.common2D.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/global/resource.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.node.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/BuilderNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/FrameNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/RenderNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/NodeController.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/common.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/particle.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/units.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/RenderNode.d.ts": {
+      "mtimeMs": 1786091466197.6255,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Graphics.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.node.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/FrameNode.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/XComponentNode.d.ts": {
+      "mtimeMs": 1786091466193.7288,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/BuilderNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/FrameNode.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.node.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Content.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.node.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/ComponentContent.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/NodeContent.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/ComponentContent.d.ts": {
+      "mtimeMs": 1786091466194.187,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/BuilderNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Content.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.node.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/FrameNode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/NodeContent.d.ts": {
+      "mtimeMs": 1786091466198.589,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Content.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/FrameNode.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.node.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/component/navigation.d.ts": {
+      "mtimeMs": 1786091465960.233,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.window.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.observer.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIServiceProxy.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIExtensionContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIServiceExtensionConnectCallback.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIExtensionContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/abilityResult.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Want.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/AbilityStartCallback.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/FormEditExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/PhotoEditorExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.ability.featureAbility.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/Context.d.ts": {
+      "mtimeMs": 1786091466166.8887,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/EventHub.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ApplicationInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ApplicationContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/BaseContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.resourceManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.contextConstant.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ApplicationContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/AbilityStageContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.file.picker.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/common.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.print.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.dialogRequest.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Want.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.OpenLinkOptions.d.ts": {
+      "mtimeMs": 1786087649726.2861,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.CompletionHandler.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIExtensionContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.StartOptions.d.ts": {
+      "mtimeMs": 1786091466154.2192,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.contextConstant.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimedia.image.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.bundleManager.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.CompletionHandler.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.window.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.AtomicServiceOptions.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIExtensionContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/connectOptions.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ElementName.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.rpc.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.ability.featureAbility.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.AtomicServiceOptions.d.ts": {
+      "mtimeMs": 1786085364205.074,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.CompletionHandlerForAtomicService.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.StartOptions.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIExtensionContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/AbilityStartCallback.d.ts": {
+      "mtimeMs": 1786087649735.5596,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/abilityResult.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.CompletionHandlerForAbilityStartCallback.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/EventHub.d.ts": {
+      "mtimeMs": 1786091466163.838,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/Context.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ApplicationContext.d.ts": {
+      "mtimeMs": 1786091466168.8655,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/Context.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ProcessInformation.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.ConfigurationConstant.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Want.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.window.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.EnvironmentCallback.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.AbilityLifecycleCallback.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.ApplicationStateChangeCallback.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/Context.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.contextConstant.d.ts": {
+      "mtimeMs": 1786085364002.807,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/Context.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.StartOptions.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.EnvironmentCallback.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.AbilityConstant.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Configuration.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ApplicationContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.AbilityLifecycleCallback.d.ts": {
+      "mtimeMs": 1786091466069.93,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.UIAbility.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.window.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ApplicationContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.ApplicationStateChangeCallback.d.ts": {
+      "mtimeMs": 1786085364082.988,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ApplicationContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.CompletionHandler.d.ts": {
+      "mtimeMs": 1786091466191.2869,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ElementName.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.OpenLinkOptions.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.StartOptions.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.CompletionHandlerForAtomicService.d.ts": {
+      "mtimeMs": 1786087649709.6057,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.AtomicServiceOptions.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.CompletionHandlerForAbilityStartCallback.d.ts": {
+      "mtimeMs": 1786087641247.6301,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/AbilityStartCallback.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.unifiedDataChannel.d.ts": {
+      "mtimeMs": 1786091466105.1035,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimedia.image.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Want.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.dragController.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIExtensionContext.d.ts": {
+      "mtimeMs": 1786091466164.9849,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.ConfigurationConstant.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Want.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.StartOptions.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.OpenLinkOptions.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.AtomicServiceOptions.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/abilityResult.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/connectOptions.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIServiceProxy.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIServiceExtensionConnectCallback.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/FormEditExtensionContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/AbilityStageContext.d.ts": {
+      "mtimeMs": 1786085364130.648,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/HapModuleInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Configuration.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/Context.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ExtensionContext.d.ts": {
+      "mtimeMs": 1786085364129.681,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/HapModuleInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Configuration.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/Context.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundleManager/ExtensionAbilityInfo.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/FormExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/LiveFormExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/VpnExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/PhotoEditorExtensionContext.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/FormExtensionContext.d.ts": {
+      "mtimeMs": 1786085364124.07,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ExtensionContext.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/FormEditExtensionContext.d.ts": {
+      "mtimeMs": 1786091466162.7007,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Want.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/abilityResult.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/LiveFormExtensionContext.d.ts": {
+      "mtimeMs": 1786085341657.7793,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Want.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/VpnExtensionContext.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ExtensionContext.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/EmbeddableUIAbilityContext.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/UIAbilityContext.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/PhotoEditorExtensionContext.d.ts": {
+      "mtimeMs": 1786091466165.829,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/ExtensionContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/abilityResult.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimedia.image.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/dataAbilityHelper.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/data/rdb/resultSet.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/dataAbilityOperation.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/dataAbilityResult.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.dataAbility.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.rdb.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.ability.featureAbility.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/data/rdb/resultSet.d.ts": {
+      "mtimeMs": 1786085364154.435,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/dataAbilityHelper.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.rdb.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/dataAbilityOperation.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.ability.featureAbility.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.dataAbility.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.rdb.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/dataAbilityHelper.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/dataAbilityResult.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/dataAbilityHelper.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.dataAbility.d.ts": {
+      "mtimeMs": 1786085364208.545,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.rdb.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/dataAbilityHelper.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/dataAbilityOperation.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.rdb.d.ts": {
+      "mtimeMs": 1786091466177.739,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/data/rdb/resultSet.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/BaseContext.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/dataAbilityHelper.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/dataAbilityOperation.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.dataAbility.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.ability.featureAbility.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Want.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/startAbilityParameter.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/abilityResult.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/app/appVersionInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/app/context.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/dataAbilityHelper.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/connectOptions.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/app/processInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.window.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/dataAbilityOperation.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/ability/startAbilityParameter.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Want.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.ability.featureAbility.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/app/appVersionInfo.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.ability.featureAbility.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/app/context.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/app/context.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/applicationInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/app/processInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/elementName.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/BaseContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/hapModuleInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/app/appVersionInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/abilityInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.ability.featureAbility.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/app/processInfo.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.ability.featureAbility.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/app/context.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/applicationInfo.d.ts": {
+      "mtimeMs": 1786091466101.0503,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/moduleInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/customizeData.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/app/context.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/abilityInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/bundleInfo.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/elementName.d.ts": {
+      "mtimeMs": 1786091466099.758,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/app/context.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/hapModuleInfo.d.ts": {
+      "mtimeMs": 1786091466099.3582,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/abilityInfo.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/app/context.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/bundleInfo.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/abilityInfo.d.ts": {
+      "mtimeMs": 1786091466100.2283,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/applicationInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/customizeData.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/app/context.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/hapModuleInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/bundleInfo.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.d.ts": {
+      "mtimeMs": 1786091466136.5405,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/applicationInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/abilityInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Want.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimedia.image.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/bundleInfo.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/app/context.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/abilityInfo.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/moduleInfo.d.ts": {
+      "mtimeMs": 1786091466102.0493,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/applicationInfo.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/customizeData.d.ts": {
+      "mtimeMs": 1786091466099.0015,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/applicationInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/abilityInfo.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/bundleInfo.d.ts": {
+      "mtimeMs": 1786091466101.5415,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/abilityInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/applicationInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/bundle/hapModuleInfo.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.bundle.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.file.fs.d.ts": {
+      "mtimeMs": 1786091466048.8623,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.util.stream.d.ts"
+      ],
+      "parent": [
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/pages/Index.ets"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.file.picker.d.ts": {
+      "mtimeMs": 1786091466158.2864,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/Context.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.window.d.ts"
+      ],
+      "parent": [
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/pages/Index.ets"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.preferences.d.ts": {
+      "mtimeMs": 1786091466062.2563,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/BaseContext.d.ts"
+      ],
+      "parent": [
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/pages/Index.ets",
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/pages/HistoryPage.ets"
+      ],
+      "error": false
+    },
+    "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/model/HealthData.ets": {
+      "mtimeMs": 1786083736000,
+      "children": [],
+      "parent": [
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/pages/Index.ets",
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/service/DeviceScanner.ets",
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/pages/HistoryPage.ets"
+      ],
+      "error": false
+    },
+    "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/service/DeviceScanner.ets": {
+      "mtimeMs": 1786083736000,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.batteryInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.deviceInfo.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.file.storageStatistics.d.ts",
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/model/HealthData.ets"
+      ],
+      "parent": [
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/pages/Index.ets"
+      ],
+      "error": true,
+      "errorCodes": [
+        28007
+      ]
+    },
+    "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/pages/Index.ets": {
+      "mtimeMs": 1786526276154.4858,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.hilog.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.util.stream.d.ts": {
+      "mtimeMs": 1786091466140.3367,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.events.emitter.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.file.fs.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.events.emitter.d.ts": {
+      "mtimeMs": 1786091466170.061,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.util.stream.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.batteryInfo.d.ts": {
+      "mtimeMs": 1786091466020.2983,
+      "children": [],
+      "parent": [
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/service/DeviceScanner.ets"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.deviceInfo.d.ts": {
+      "mtimeMs": 1786087649698.0125,
+      "children": [],
+      "parent": [
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/service/DeviceScanner.ets"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.file.storageStatistics.d.ts": {
+      "mtimeMs": 1786091466066.7715,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts"
+      ],
+      "parent": [
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/service/DeviceScanner.ets"
+      ],
+      "error": false
+    },
+    "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/pages/HistoryPage.ets": {
+      "mtimeMs": 1786499541000,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.common.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.preferences.d.ts",
+        "/Users/mike/Projects/mnn-harmony-chat/entry/src/main/ets/model/HealthData.ets"
+      ],
+      "parent": [],
+      "error": true,
+      "errorCodes": [
+        28007,
+        28040
+      ]
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/action_sheet.d.ts": {
+      "mtimeMs": 1786091468494.1448,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.promptAction.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.promptAction.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/alert_dialog.d.ts": {
+      "mtimeMs": 1786091468476.2334,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.promptAction.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/canvas.d.ts": {
+      "mtimeMs": 1786091468468.4731,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.drawing.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/FrameNode.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.uniformTypeDescriptor.d.ts": {
+      "mtimeMs": 1786091466098.2942,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimodalInput.intentionCode.d.ts": {
+      "mtimeMs": 1747072597000,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/ImageModifier.d.ts": {
+      "mtimeMs": 1786085364192.007,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/SymbolGlyphModifier.d.ts": {
+      "mtimeMs": 1786085364185.968,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.shape.d.ts": {
+      "mtimeMs": 1786091466216.4922,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.matrix4.d.ts": {
+      "mtimeMs": 1786091466117.7485,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/common.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/image.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.uiEffect.d.ts": {
+      "mtimeMs": 1786089028325.298,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.theme.d.ts": {
+      "mtimeMs": 1786085364134.236,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/common.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/with_theme.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/common.d.ts": {
+      "mtimeMs": 1786091468481.3357,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.dragController.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.dragController.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/Context.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimodalInput.pointer.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimedia.image.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.unifiedDataChannel.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.unifiedDataChannel.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.uniformTypeDescriptor.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.unifiedDataChannel.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.data.unifiedDataChannel.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimodalInput.intentionCode.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/ImageModifier.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/SymbolGlyphModifier.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.shape.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.shape.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.shape.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.shape.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.matrix4.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.observer.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.observer.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.observer.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.UIContext.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Graphics.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.uiEffect.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.uiEffect.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/ComponentContent.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.theme.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.promptAction.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.scene.d.ts": {
+      "mtimeMs": 1786091466024.015,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/ScenePostProcessSettings.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/SceneTypes.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/SceneTypes.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/SceneResources.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/SceneResources.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/SceneNodes.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/Scene.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/Scene.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/component3d.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/component3d.d.ts": {
+      "mtimeMs": 1747072598000,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.scene.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/ScenePostProcessSettings.d.ts": {
+      "mtimeMs": 1786089028379.5547,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.scene.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/SceneNodes.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/SceneTypes.d.ts": {
+      "mtimeMs": 1786091466212.8398,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.scene.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/SceneResources.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/SceneNodes.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/Scene.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/SceneResources.d.ts": {
+      "mtimeMs": 1786091466213.6704,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/SceneTypes.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.scene.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/SceneNodes.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/Scene.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/SceneNodes.d.ts": {
+      "mtimeMs": 1786091466211.764,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/SceneResources.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/Scene.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/SceneTypes.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/ScenePostProcessSettings.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.scene.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/Scene.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/Scene.d.ts": {
+      "mtimeMs": 1786091466212.3179,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/SceneResources.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/SceneNodes.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/SceneTypes.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.scene.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/graphics3d/SceneNodes.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/content_slot.d.ts": {
+      "mtimeMs": 1747072598000,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.node.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/custom_dialog_controller.d.ts": {
+      "mtimeMs": 1786091468501.6992,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.promptAction.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/embedded_component.d.ts": {
+      "mtimeMs": 1747072598000,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Want.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.app.ability.Want.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/folder_stack.d.ts": {
+      "mtimeMs": 1786085366048.89,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.window.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.request.cacheDownload.d.ts": {
+      "mtimeMs": 1786091466121.6016,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/image.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/image.d.ts": {
+      "mtimeMs": 1786091468511.9663,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.drawableDescriptor.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.drawing.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.drawing.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.matrix4.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.request.cacheDownload.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/nav_destination.d.ts": {
+      "mtimeMs": 1786091468485.763,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.window.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/navigation.d.ts": {
+      "mtimeMs": 1786091468464.76,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.window.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/node_container.d.ts": {
+      "mtimeMs": 1747072598000,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.node.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/particle.d.ts": {
+      "mtimeMs": 1786091468464.0398,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Graphics.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Graphics.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Graphics.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/pattern_lock.d.ts": {
+      "mtimeMs": 1786085365983.018,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/CommonModifier.d.ts": {
+      "mtimeMs": 1786085364173.558,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/tabs.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/tabs.d.ts": {
+      "mtimeMs": 1786091468498.4504,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/CommonModifier.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/tab_content.d.ts": {
+      "mtimeMs": 1786089029470.201,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.drawableDescriptor.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.text.d.ts": {
+      "mtimeMs": 1786091466139.4194,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.drawing.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.common2D.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/text_common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.inputMethod.ExtraConfig.d.ts": {
+      "mtimeMs": 1786091466096.6243,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/text_common.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/text_common.d.ts": {
+      "mtimeMs": 1786091468482.702,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.text.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.text.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.text.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.text.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.text.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.graphics.text.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.inputMethod.ExtraConfig.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.intl.d.ts": {
+      "mtimeMs": 1786085364137.669,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/time_picker.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/time_picker.d.ts": {
+      "mtimeMs": 1786091468489.675,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.intl.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/with_theme.d.ts": {
+      "mtimeMs": 1747072598000,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.arkui.theme.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/units.d.ts": {
+      "mtimeMs": 1786091468485.209,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/global/resource.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Graphics.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Graphics.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/arkui/Graphics.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/video.d.ts": {
+      "mtimeMs": 1786091468503.5933,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.web.webview.d.ts": {
+      "mtimeMs": 1786091466134.2202,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.security.cert.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.multimedia.image.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.print.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.web.netErrorList.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/web.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/declarations/web.d.ts": {
+      "mtimeMs": 1786091468491.3044,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.web.webview.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.security.cert.d.ts": {
+      "mtimeMs": 1786091466074.5032,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.security.cryptoFramework.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.web.webview.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.print.d.ts": {
+      "mtimeMs": 1786091466102.807,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/application/Context.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.web.webview.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.web.netErrorList.d.ts": {
+      "mtimeMs": 1786091466014.4495,
+      "children": [],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.web.webview.d.ts"
+      ],
+      "error": false
+    },
+    "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.security.cryptoFramework.d.ts": {
+      "mtimeMs": 1786091466079.254,
+      "children": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.base.d.ts"
+      ],
+      "parent": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/@ohos.security.cert.d.ts"
+      ],
+      "error": false
+    }
+  }
+}

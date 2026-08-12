@@ -1,0 +1,7 @@
+/build/
+/.hvigor/
+/node_modules/
+/oh_modules/
+/.idea/
+*.hap
+/dist/
