@@ -1,102 +1,100 @@
-# Drive & Battery Health Viewer (HarmonyOS)
+# DuanYu (端语) — A Native On-Device LLM Chat App for HarmonyOS NEXT
 
-> A lightweight HarmonyOS port of [drive-battery-health-viewer](https://github.com/xincheng1237/drive-battery-health-viewer).
-> The original supports Windows (Go) and macOS (SwiftUI); this version targets **HarmonyOS PC / 2in1** (ArkTS + ArkUI).
+> A fully local large-language-model chat app for HarmonyOS NEXT devices. No cloud, no telemetry — your conversations never leave the device.
 
-## Features
+DuanYu is the first local-LLM chat app in the HarmonyOS NEXT ecosystem: it runs 4-bit quantized models entirely on-device via Alibaba's [MNN](https://github.com/alibaba/MNN) engine, completely offline.
 
-| Module | Content | Data source (public HarmonyOS API) |
-|---|---|---|
-| 🔋 Battery | SOC %, health state, temperature, voltage, current, technology, charging state | `batteryInfo` (BasicServicesKit, no permission) |
-| 💾 Storage | Total / free / used ratio of built-in storage | `storageStatistics` (CoreFileKit, API 15+) |
-| 🖥️ Device | Model, hardware model, OS version, SDK API, disk serial | `deviceInfo`; serial requires `ohos.permission.ACCESS_DISK_PHY_INFO` |
-| 📜 History | Auto snapshot every 5 min (SOC/health/temp/capacity), max 200 entries | `preferences` |
-| 📤 Report export | Plain-text health report saved via picker | `DocumentViewPicker` (no storage permission needed) |
+## ✨ Features
 
-- Battery live data refreshes every 10 s on the main page.
+- **Fully local inference**: MNN engine + 4-bit MNN models from ModelScope, zero cloud API calls
+- **Model management**: in-app download / switch / delete models (Qwen3, Qwen2.5, 433MB ~ 1.2GB)
+- **Streaming output**: token-by-token typewriter effect, with reasoning steps collapsed in light gray
+- **Thinking-chain folding**: `<think>` reasoning from Qwen3 models collapsed by default, expandable
+- **Multi-turn context**: full conversation memory with persistent chat history
+- **Local OpenAI-compatible API**: `POST /v1/chat/completions` so agents/third-party clients on HarmonyOS PCs can call the local model
+- **Inference stats**: token count and generation speed per reply
+- **Tunable parameters**: temperature, thinking-mode toggle
 
-## Project layout
+## 🏗️ Architecture
+
+| Layer | Choice |
+|---|---|
+| Inference engine | MNN (`libMNN.so`, LLM linked in, arm64-v8a) |
+| Bridge | NAPI (C++ ↔ ArkTS, `libmnnllm.so`) |
+| UI | ArkUI (ArkTS, native HarmonyOS NEXT) |
+| Model source | ModelScope MNN official org (Apache-2.0 redistributable models) |
 
 ```
-AppScope/                App-level config (bundleName, icon)
-entry/src/main/ets/
-  entryability/          EntryAbility (PC window sizing)
-  model/HealthData.ets   Data models
-  service/DeviceScanner.ets   Hardware scanner (battery/storage/device)
-  pages/Index.ets        Main page (3 cards)
-  pages/HistoryPage.ets  History page
-entry/src/main/module.json5   Module config + permission declaration
-build/signing/           Signing materials & scripts
-dist/                    Signed HAP
+ArkTS UI (chat / model management / API server)
+        ↕ NAPI (libmnnllm.so)
+   MNN::Transformer::Llm (libMNN.so)
+        ↕
+   4-bit MNN models (llm.mnn + llm.mnn.weight)
 ```
 
-## Build
+## 🚀 Getting Started
 
-Requires DevEco Studio 6.1.0+ (bundled SDK API 23 / HarmonyOS 6.1.0), Node.js, ohpm.
+### Requirements
+
+- DevEco Studio 6.1.0+ (bundled SDK API 23 / HarmonyOS 6.1.0)
+- HarmonyOS NEXT device (API 12+, arm64-v8a)
+- Node.js + ohpm
+
+### Build
 
 ```bash
-# HarmonyOS projects locate the SDK via DEVECO_SDK_HOME (local.properties is ignored)
-export DEVECO_SDK_HOME=/Applications/DevEco-Studio.app/Contents/sdk/default
-export PATH=$PATH:/Applications/DevEco-Studio.app/Contents/tools/node/bin:/Applications/DevEco-Studio.app/Contents/tools/ohpm/bin
+export DEVECO_SDK_HOME="$HOME/Library/OpenHarmony/Sdk"
+export PATH="/Applications/DevEco-Studio.app/Contents/tools/node/bin:/Applications/DevEco-Studio.app/Contents/tools/ohpm/bin:$PATH"
 
-cd <project>
+cd mnn-harmony-chat
 ohpm install
 node /Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw.js \
   assembleHap --mode module -p product=default -p buildMode=debug --no-daemon
-# Output: entry/build/default/outputs/default/entry-default-unsigned.hap
+# Output: entry/build/default/outputs/default/entry-default-signed.hap
 ```
 
-> The SDK root must contain `<sdkRoot>/<path>/sdk-pkg.json` where `<path>` equals
-> `data.path` in that file (e.g. `HarmonyOS-6.1.0/`), with `openharmony/` and `hms/`
-> component directories present.
+### Sign & Deploy
 
-## Signing & deployment
+HarmonyOS NEXT devices require DevEco Studio auto-signing:
 
-Local debug signing (OpenHarmony toolchain; **OpenHarmony devices/emulators only** —
-HarmonyOS NEXT devices need DevEco Studio auto-signing, see below):
+1. DevEco Studio → File → Project Structure → Signing Configs
+2. Check "Automatically generate signature" (requires Huawei developer login)
+3. `hdc install -r entry-default-signed.hap`
+
+## 📦 Model Download
+
+In-app: **Settings → Model Management** (all from the ModelScope MNN official org, Apache-2.0):
+
+| Model | Size | Notes |
+|---|---|---|
+| Qwen3-0.6B-MNN | 433 MB | Fastest, average quality |
+| Qwen2.5-1.5B-Instruct-MNN | 839 MB | Balanced, better quality |
+| Qwen3-1.7B-MNN | 1.2 GB | Best quality |
+| Qwen2.5-0.5B-Instruct-MNN | 531 MB | Smallest, weakest |
+
+## 🔌 Local API Server
+
+DuanYu ships a local OpenAI-compatible HTTP server for agents/other clients on HarmonyOS PCs:
 
 ```bash
-cd build/signing
-L=/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/lib
-J="java -jar $L/hap-sign-tool.jar"
-
-$J sign-profile -keyAlias "openharmony application profile debug" -signAlg SHA256withECDSA \
-  -mode localSign -profileCertFile $L/OpenHarmonyProfileDebug.pem \
-  -inFile profile-final.json -keystoreFile $L/OpenHarmony.p12 \
-  -outFile p7b-final.p7b -keyPwd 123456 -keystorePwd 123456
-
-# appCertFile must be a certificate CHAIN (leaf + CA)
-$J sign-app -mode localSign -keyAlias "openharmony application release" -signAlg SHA256withECDSA \
-  -appCertFile app-vanilla-chain.pem -profileFile p7b-final.p7b \
-  -inFile <unsigned.hap> -keystoreFile $L/OpenHarmony.p12 \
-  -outFile signed.hap -keyPwd 123456 -keystorePwd 123456 \
-  -compatibleVersion 15 -signCode 0
+# After enabling (Settings → API Service), listens on 0.0.0.0:8080
+curl http://<device-IP>:8080/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{"model":"duanyu-local","messages":[{"role":"user","content":"Hello"}]}'
 ```
 
-Deploy: `hdc install signed.hap` (or `hdc install -r signed.hap` to overwrite).
+- `POST /v1/chat/completions` — chat completion (OpenAI-compatible)
+- `GET /v1/models` — model list
+- `GET /health` — health check
 
-**HarmonyOS NEXT devices (e.g. MateBook)**: local OpenHarmony signatures are rejected.
-Use DevEco Studio: File → Project Structure → Signing Configs → check
-"Automatically generate signature" (requires a Huawei developer account).
+## ⚖️ Compliance
 
-## Permissions
+DuanYu is a pure on-device app (models run locally, conversations never leave the device):
 
-- `ohos.permission.ACCESS_DISK_PHY_INFO` (API 15+): reads the disk serial number.
-  Restricted permission (system_basic); APL must be declared `system_basic` (done in
-  profile). **Commercial release requires a Huawei-signed profile via AppGallery review**;
-  the local self-signed profile works for debugging only.
-- Without the permission the app runs normally; the serial shows "unauthorized".
+- Chat UI carries an "AI 生成" (AI-generated) label
+- All models are Apache-2.0 licensed (Qwen series), legally redistributable
+- Standalone apps do not trigger China's algorithm filing / safety assessment (no public-opinion or social-mobilization attributes)
 
-## Limitations vs. desktop original
+## 📄 License
 
-| Capability | Desktop (Win/macOS) | HarmonyOS |
-|---|---|---|
-| Battery health | Exact % (design/full capacity) | **Level** only (GOOD/OVERHEAT/...), no % or cycle count |
-| Disk S.M.A.R.T. | Temp/power-on hours/read-write/health | **No API**; capacity + serial only |
-| History/export/i18n | Full | History + report export (Chinese UI) |
-
-HarmonyOS does not expose S.M.A.R.T. or deep battery APIs — a platform limitation.
-
-## License
-
-GPL v3.0 (same as the original project).
+[Apache License 2.0](LICENSE). The MNN engine, Qwen models, and portions adapted from [SKL-666666/mnn-local-ai-chat](https://github.com/SKL-666666/mnn-local-ai-chat) (Apache-2.0) remain under their respective licenses.

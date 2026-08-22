@@ -1,112 +1,100 @@
-# 硬盘与电池健康查看器（鸿蒙版）
+# 端语（DuanYu）—— 鸿蒙原生本地大模型对话应用
 
-> 基于 [drive-battery-health-viewer](https://github.com/xincheng1237/drive-battery-health-viewer) 的鸿蒙轻量版移植。
-> 原版支持 Windows（Go）与 macOS（SwiftUI），本版本面向 **HarmonyOS PC / 2in1**（ArkTS + ArkUI）。
+> 运行在 HarmonyOS NEXT 设备上的纯本地大语言模型聊天应用，无云端依赖，隐私数据不出设备。
 
-## 功能
+端语是 HarmonyOS NEXT 生态位首发的本地 LLM 聊天应用：基于阿里巴巴 [MNN](https://github.com/alibaba/MNN) 引擎端侧推理 4-bit 量化模型，全程离线运行，你的对话内容永远不会离开设备。
 
-| 模块 | 内容 | 数据来源（鸿蒙公开 API） |
-|---|---|---|
-| 🔋 电池 | 电量 %、健康状态、温度、电压、电流、电池技术、充电状态 | `batteryInfo`（BasicServicesKit，普通应用可用） |
-| 💾 存储 | 内置存储总容量 / 可用空间 / 已用占比 | `storageStatistics`（CoreFileKit，API 15+） |
-| 🖥️ 设备 | 型号、硬件型号、系统版本、SDK API、硬盘序列号 | `deviceInfo`，序列号需 `ohos.permission.ACCESS_DISK_PHY_INFO` |
-| 📜 历史记录 | 每 5 分钟自动快照（电量/健康/温度/容量），最多 200 条 | `preferences` 持久化 |
-| 📤 报告导出 | 生成纯文本健康报告，保存到用户选择位置 | `DocumentViewPicker`（无需存储权限） |
+## ✨ 特性
 
-- 主界面每 10 秒自动刷新电池实时数据
-- 磁盘序列号显示遵循原版隐私理念（鸿蒙版默认仅展示，报告导出含序列号）
+- **纯本地推理**：MNN 引擎 + ModelScope 的 4-bit MNN 格式模型，无任何云端 API 调用
+- **多模型管理**：应用内下载 / 切换 / 删除模型（Qwen3、Qwen2.5 系列，433MB ~ 1.2GB）
+- **流式输出**：逐 token 打字机效果，思考过程浅灰折叠展示
+- **思考链折叠**：Qwen3 系列模型的 `<think>` 推理过程默认收起，可展开查看
+- **多轮对话**：完整上下文记忆，历史会话持久化
+- **本地 OpenAI 兼容 API**：`POST /v1/chat/completions`，供鸿蒙电脑上的智能体 / 第三方客户端接入本机模型
+- **推理统计**：每条回复显示 token 数与生成速度
+- **参数可调**：温度、思考模式开关
 
-## 项目结构
+## 🏗️ 技术架构
+
+| 层 | 选型 |
+|---|---|
+| 推理引擎 | MNN（`libMNN.so`，LLM 已链入，arm64-v8a） |
+| 桥接层 | NAPI（C++ ↔ ArkTS，`libmnnllm.so`） |
+| UI 层 | ArkUI（ArkTS，HarmonyOS NEXT 原生） |
+| 模型渠道 | ModelScope MNN 官方组织（Apache-2.0 可再分发模型） |
 
 ```
-AppScope/                应用级配置（bundleName、图标）
-entry/src/main/ets/
-  entryability/          EntryAbility（含 PC 窗口尺寸适配）
-  model/HealthData.ets   数据模型
-  service/DeviceScanner.ets  硬件信息采集（battery/storage/device）
-  pages/Index.ets        主界面（电池/存储/设备三卡片）
-  pages/HistoryPage.ets  历史记录页
-entry/src/main/module.json5   模块配置 + 权限声明
-build/signing/           签名材料与脚本
-dist/                    签名产物（.hap）
+ArkTS UI (聊天/模型管理/API服务)
+        ↕ NAPI (libmnnllm.so)
+   MNN::Transformer::Llm (libMNN.so)
+        ↕
+   4-bit MNN 模型 (llm.mnn + llm.mnn.weight)
 ```
 
-## 构建
+## 🚀 快速开始
 
-环境：DevEco Studio 6.1.0+（内置 SDK API 23/HarmonyOS 6.1.0）、Node.js、ohpm。
+### 环境要求
+
+- DevEco Studio 6.1.0+（内置 SDK API 23 / HarmonyOS 6.1.0）
+- HarmonyOS NEXT 真机（API 12+，arm64-v8a）
+- Node.js + ohpm
+
+### 构建
 
 ```bash
-# 关键：HarmonyOS 工程通过 DEVECO_SDK_HOME 定位 SDK（不读 local.properties）
-export DEVECO_SDK_HOME=/Applications/DevEco-Studio.app/Contents/sdk/default
-export PATH=$PATH:/Applications/DevEco-Studio.app/Contents/tools/node/bin:/Applications/DevEco-Studio.app/Contents/tools/ohpm/bin
+export DEVECO_SDK_HOME="$HOME/Library/OpenHarmony/Sdk"
+export PATH="/Applications/DevEco-Studio.app/Contents/tools/node/bin:/Applications/DevEco-Studio.app/Contents/tools/ohpm/bin:$PATH"
 
-cd <工程目录>
+cd mnn-harmony-chat
 ohpm install
 node /Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw.js \
   assembleHap --mode module -p product=default -p buildMode=debug --no-daemon
-# 产物：entry/build/default/outputs/default/entry-default-unsigned.hap
+# 产物：entry/build/default/outputs/default/entry-default-signed.hap
 ```
 
-> 若 `DEVECO_SDK_HOME` 指向标准 SDK 目录（如 `~/Library/OpenHarmony/Sdk`），
-> 要求目录下存在 `<sdkRoot>/<path>/sdk-pkg.json`（`path` 取 sdk-pkg.json 中 `data.path`，
-> 如 `HarmonyOS-6.1.0/`），且 `openharmony/`、`hms/` 组件齐全。
+### 签名与部署
 
-## 签名与部署
+HarmonyOS NEXT 真机需 DevEco Studio 自动签名（本地 OpenHarmony 签名会被拒）：
 
-本地调试签名（OpenHarmony 工具链，**仅 OpenHarmony 设备/模拟器可用**；
-HarmonyOS NEXT 真机需 DevEco Studio 自动签名，见下）：
+1. DevEco Studio → File → Project Structure → Signing Configs
+2. 勾选 Automatically generate signature（需登录华为开发者账号）
+3. `hdc install -r entry-default-signed.hap`
 
-```bash
-cd build/signing
-L=/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/lib
-J="java -jar $L/hap-sign-tool.jar"
+## 📦 模型下载
 
-# 1. 生成 profile（已含 bundle/apl/设备 UDID 配置：profile-final.json）
-# 2. 签名 profile
-$J sign-profile -keyAlias "openharmony application profile debug" -signAlg SHA256withECDSA \
-  -mode localSign -profileCertFile $L/OpenHarmonyProfileDebug.pem \
-  -inFile profile-final.json -keystoreFile $L/OpenHarmony.p12 \
-  -outFile p7b-final.p7b -keyPwd 123456 -keystorePwd 123456
-# 3. 签名 HAP（appCertFile 必须为证书链：叶子+CA）
-$J sign-app -mode localSign -keyAlias "openharmony application release" -signAlg SHA256withECDSA \
-  -appCertFile app-vanilla-chain.pem -profileFile p7b-final.p7b \
-  -inFile <unsigned.hap> -keystoreFile $L/OpenHarmony.p12 \
-  -outFile signed.hap -keyPwd 123456 -keystorePwd 123456 \
-  -compatibleVersion 15 -signCode 0
-```
+应用内「参数 → 模型管理」可下载以下模型（来自 ModelScope MNN 官方组织，均为 Apache-2.0 可再分发）：
 
-部署：
-
-```bash
-hdc install signed.hap        # 或 hdc install -r signed.hap（覆盖安装）
-```
-
-**HarmonyOS NEXT 真机（如 MateBook）**：本地 OpenHarmony 签名会被拒，请用 DevEco Studio：
-File → Project Structure → Signing Configs → 勾选 Automatically generate signature
-（需登录华为开发者账号，生成华为签发的 profile 与证书）。
-
-## 权限说明
-
-- `ohos.permission.ACCESS_DISK_PHY_INFO`（API 15+）：读取硬盘序列号，属**受限权限**（system_basic）。
-  普通应用需将 APL 声明为 `system_basic`（本工程 profile 已配置），
-  **商用上架须在华为应用市场申请发布证书与 Profile 并通过审核**；调试阶段本地自签 profile 即可。
-- 未获权限时应用正常运行，序列号显示"未授权"，不影响其他功能。
-
-## 与桌面原版的能力差异（重要）
-
-| 能力 | 桌面原版（Win/macOS） | 鸿蒙版 |
+| 模型 | 大小 | 说明 |
 |---|---|---|
-| 电池健康度 | 精确百分比（设计/满充容量） | 健康**等级**（正常/过热/过压/低温/僵死），无百分比/循环次数 |
-| 硬盘 S.M.A.R.T. | 温度/通电时间/读写量/健康状态 | **无 API**，仅容量 + 序列号 |
-| 历史/导出/多语言 | 全 | 历史 + 报告导出（中文界面） |
+| Qwen3-0.6B-MNN | 433 MB | 最快，能力一般 |
+| Qwen2.5-1.5B-Instruct-MNN | 839 MB | 均衡，能力较强 |
+| Qwen3-1.7B-MNN | 1.2 GB | 最强 |
+| Qwen2.5-0.5B-Instruct-MNN | 531 MB | 最小，能力最弱 |
 
-鸿蒙不开放 S.M.A.R.T. 与电池深度数据 API，属平台限制，非实现问题。
+## 🔌 本地 API 服务
 
-## 已知限制
+端语内置 OpenAI 兼容的本地 HTTP 服务，供鸿蒙电脑上的智能体或其他客户端接入本机模型：
 
-- 磁盘序列号仅 PC/2in1 设备返回（`diskSN` 文档约定）
-- 无真机回归验证清单见 `docs/VERIFY.md`（待补：真机功能核对）
+```bash
+# 开启后（设置 → API 服务），监听 0.0.0.0:8080
+curl http://<设备IP>:8080/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{"model":"duanyu-local","messages":[{"role":"user","content":"你好"}]}'
+```
 
-## 许可证
+- `POST /v1/chat/completions` — 对话补全（OpenAI 兼容）
+- `GET /v1/models` — 模型列表
+- `GET /health` — 健康检查
 
-GPL v3.0（与原项目一致），保留原版权声明。
+## ⚖️ 合规说明
+
+端语是纯本地单机应用（模型在设备端推理，对话内容不出设备）：
+
+- 聊天界面带「AI 生成」显式标识
+- 模型均为 Apache-2.0 许可（Qwen 系列），可合法再分发
+- 单机应用不触发算法备案 / 安全评估（无舆论属性或社会动员能力）
+
+## 📄 许可证
+
+本项目采用 [Apache License 2.0](LICENSE)。依赖的 MNN 引擎、Qwen 模型、以及部分借鉴自 [SKL-666666/mnn-local-ai-chat](https://github.com/SKL-666666/mnn-local-ai-chat)（Apache-2.0）的代码，均遵循其各自的许可证。

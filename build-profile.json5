@@ -1,11 +1,26 @@
 {
   "app": {
-    "signingConfigs": [],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/mike/.ohos/config/default_mnn-harmony-chat_gxcficRJ28jEx0Wfy_oKte4cXLoapL-voNnckCWIh70=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B48C69EE31ABF4DCA99A13FDA440E814A559F8C65330CB5F0603E4D537FCF3C9640D0B2364E3D33",
+          "profile": "/Users/mike/.ohos/config/default_mnn-harmony-chat_gxcficRJ28jEx0Wfy_oKte4cXLoapL-voNnckCWIh70=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/mike/.ohos/config/default_mnn-harmony-chat_gxcficRJ28jEx0Wfy_oKte4cXLoapL-voNnckCWIh70=.p12",
+          "storePassword": "0000001BFEB44BC9E6AFB20AD24386EF1ECB5175CB992020F1B3C2F21F6AF94CED461ABE823A46C061869F"
+        }
+      }
+    ],
     "products": [
       {
         "name": "default",
         "signingConfig": "default",
-        "targetSdkVersion": "6.1.0(23)",
+        "targetSdkVersion": "6.1.1(24)",
+        "compileSdkVersion": "6.1.1(24)",
         "compatibleSdkVersion": "5.0.3(15)",
         "runtimeOS": "HarmonyOS",
         "buildOption": {

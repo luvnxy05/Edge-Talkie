@@ -1,0 +1,7 @@
+{
+  "name": "libmnnllm.so",
+  "version": "1.0.0",
+  "description": "MNN LLM NAPI 桥",
+  "main": "index.d.ts",
+  "types": "./index.d.ts"
+}
