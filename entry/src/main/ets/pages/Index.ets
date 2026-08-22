@@ -9,9 +9,8 @@ import { ApiServer } from '../utils/ApiServer';
 import mnnllm from 'libmnnllm.so';
 
 const TAG: string = 'MnnChat';
-// 模型经 hdc rport 转发：设备 127.0.0.1:8899 → Mac 8899（USB 通道，无需同一网段）
-// 每个模型在 Mac 的 models/ 目录下一个子目录，range_server 服务整个 models/ 目录
-const MODEL_REMOTE_ROOT: string = 'http://127.0.0.1:8899';
+// 模型直连魔搭社区（ModelScope）下载：resolve 端点 302 重定向到 CDN，再对 CDN 分段下载
+const MODELSCOPE_RESOLVE: string = 'https://modelscope.cn/models/MNN';
 
 // 模型白名单（ModelScope MNN 官方组织全部 17 个 4-bit MNN 模型，2026-08 探测）
 interface ModelSpec {
@@ -324,7 +323,7 @@ struct Index {
       this.statusText = '下载 ' + spec.displayName + ' ' + f + '…';
       this.downloadFileName = f;
       this.downloadPercent = 0;
-      await this.downloadFile(MODEL_REMOTE_ROOT + '/' + modelId + '/' + f, dir + '/' + f, (pct: number) => {
+      await this.downloadFile(modelId, f, dir + '/' + f, (pct: number) => {
         this.downloadPercent = pct;
       });
     }
@@ -335,72 +334,118 @@ struct Index {
     return dir;
   }
 
-  private async downloadFile(url: string, dest: string, onProgress?: (percent: number) => void): Promise<void> {
-    // 分段下载：每次 32MB（热点 WiFi 下 64MB 可能超过鸿蒙 http 默认 60s 读超时）
-    const CHUNK: number = 32 * 1024 * 1024;
-    const file = fs.openSync(dest, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE | fs.OpenMode.TRUNC);
-    let offset: number = 0;
-    let totalSize: number = -1;   // 文件总大小（从 Content-Range 解析）
+  // 解析 ModelScope resolve 端点的 CDN 直链（302 Location 头）
+  private async resolveCdnUrl(modelId: string, fileName: string): Promise<string> {
+    const url = MODELSCOPE_RESOLVE + '/' + modelId + '/resolve/master/' + fileName;
+    const httpReq = http.createHttp();
     try {
-      hilog.info(0x0000, TAG, 'downloading %{public}s', url);
-      while (true) {
-        const end: number = offset + CHUNK - 1;
+      const resp = await httpReq.request(url, {
+        method: http.RequestMethod.GET,
+        maxRedirects: 0,   // 不跟随 302，拿到 Location 头
+        expectDataType: http.HttpDataType.ARRAY_BUFFER,
+        readTimeout: 30000
+      });
+      const loc: string = resp.header['location'] as string;
+      if (loc && loc.length > 0) {
+        return loc;
+      }
+      return url;
+    } catch (e) {
+      return url;   // 拿不到 Location（抛 2300047 等）就回退原 URL
+    } finally {
+      httpReq.destroy();
+    }
+  }
+
+  private async downloadFile(modelId: string, fileName: string, dest: string, onProgress?: (percent: number) => void): Promise<void> {
+    const file = fs.openSync(dest, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE | fs.OpenMode.TRUNC);
+    try {
+      const isWeight: boolean = fileName.includes('weight');
+      if (!isWeight) {
+        // 小文件：resolve 端点直接 200 返回完整内容，不发 Range（主站对 Range 有 bug：返回错误 Content-Length 导致 partial file）
+        const url = MODELSCOPE_RESOLVE + '/' + modelId + '/resolve/master/' + fileName;
+        hilog.info(0x0000, TAG, 'downloading %{public}s', fileName);
         const httpReq = http.createHttp();
-        let resp: http.HttpResponse;
         try {
-          resp = await httpReq.request(url, {
+          const resp = await httpReq.request(url, {
             method: http.RequestMethod.GET,
-            header: { 'Range': 'bytes=' + offset + '-' + end.toString() },
             expectDataType: http.HttpDataType.ARRAY_BUFFER,
-            readTimeout: 120000
+            readTimeout: 60000
           });
+          const code: number = resp.responseCode as number;
+          if (code !== 200) {
+            throw new Error('HTTP ' + code + ' for ' + fileName);
+          }
+          const buf: ArrayBuffer = resp.result as ArrayBuffer;
+          fs.writeSync(file.fd, buf);
+          if (onProgress) {
+            onProgress(100);
+          }
         } finally {
           httpReq.destroy();
         }
-        // 兼容：服务器不支持 Range 时返回 200 全量，直接写完退出
-        const code: number = resp.responseCode as number;
-        if (code !== 206 && code !== 200) {
-          throw new Error('HTTP ' + code + ' for ' + url);
-        }
-        // 从 Content-Range 解析总大小：bytes start-end/total
-        if (totalSize < 0 && resp.header) {
-          const cr: string = resp.header['content-range'] as string;
-          if (cr) {
-            const m = cr.match(/\/(\d+)/);
-            if (m) {
-              totalSize = parseInt(m[1], 10);
+        hilog.info(0x0000, TAG, 'downloaded %{public}s', fileName);
+      } else {
+        // weight 大文件：resolve 拿 CDN 直链（支持 Range），再 32MB 分段下载
+        const CHUNK: number = 32 * 1024 * 1024;
+        const cdnUrl = await this.resolveCdnUrl(modelId, fileName);
+        let offset: number = 0;
+        let totalSize: number = -1;
+        hilog.info(0x0000, TAG, 'downloading %{public}s (cdn)', fileName);
+        while (true) {
+          const end: number = offset + CHUNK - 1;
+          const httpReq = http.createHttp();
+          let resp: http.HttpResponse;
+          try {
+            resp = await httpReq.request(cdnUrl, {
+              method: http.RequestMethod.GET,
+              header: { 'Range': 'bytes=' + offset + '-' + end.toString() },
+              expectDataType: http.HttpDataType.ARRAY_BUFFER,
+              readTimeout: 120000
+            });
+          } finally {
+            httpReq.destroy();
+          }
+          const code: number = resp.responseCode as number;
+          if (code !== 206 && code !== 200) {
+            throw new Error('HTTP ' + code + ' for ' + fileName);
+          }
+          if (totalSize < 0 && resp.header) {
+            const cr: string = resp.header['content-range'] as string;
+            if (cr) {
+              const m = cr.match(/\/(\d+)/);
+              if (m) {
+                totalSize = parseInt(m[1], 10);
+              }
+            }
+            if (totalSize < 0) {
+              const cl: string = resp.header['content-length'] as string;
+              if (cl) {
+                totalSize = parseInt(cl, 10);
+              }
             }
           }
-          // 服务器不支持 Range 时（200），从 content-length 拿
-          if (totalSize < 0) {
-            const cl: string = resp.header['content-length'] as string;
-            if (cl) {
-              totalSize = parseInt(cl, 10);
-            }
+          const buf: ArrayBuffer = resp.result as ArrayBuffer;
+          if (buf.byteLength <= 0) {
+            break;
           }
+          fs.writeSync(file.fd, buf);
+          offset += buf.byteLength;
+          if (onProgress && totalSize > 0) {
+            const pct = Math.min(100, Math.round(offset * 100 / totalSize));
+            onProgress(pct);
+          }
+          if (buf.byteLength < CHUNK) {
+            break;
+          }
+          await new Promise<void>((resolve) => setTimeout(resolve, 50));
         }
-        const buf: ArrayBuffer = resp.result as ArrayBuffer;
-        if (buf.byteLength <= 0) {
-          break;
-        }
-        fs.writeSync(file.fd, buf);
-        offset += buf.byteLength;
-        // 更新进度
-        if (onProgress && totalSize > 0) {
-          const pct = Math.min(100, Math.round(offset * 100 / totalSize));
-          onProgress(pct);
-        }
-        if (buf.byteLength < CHUNK) {
-          break; // 最后一段（或服务器不支持 Range 返回全量）
-        }
-        // 段间小延迟，避免连接复用问题
-        await new Promise<void>((resolve) => setTimeout(resolve, 50));
+        hilog.info(0x0000, TAG, 'downloaded %{public}s total=%{public}d bytes', fileName, offset);
       }
       fs.closeSync(file);
-      hilog.info(0x0000, TAG, 'downloaded %{public}s total=%{public}d bytes', url.split('/').pop()!, offset);
     } catch (e) {
       fs.closeSync(file);
-      hilog.error(0x0000, TAG, 'download failed %{public}s: %{public}s', url, (e as Error).message);
+      hilog.error(0x0000, TAG, 'download failed %{public}s: %{public}s', fileName, (e as Error).message);
       throw new Error('download failed: ' + (e as Error).message);
     }
   }
