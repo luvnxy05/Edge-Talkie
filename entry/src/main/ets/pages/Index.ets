@@ -61,10 +61,18 @@ interface PersistSession {
   messages: PersistMessage[];
 }
 
-// 正文分段：把代码块（```...```）与普通文本拆开，代码块用等宽字体+灰底渲染，普通文本正常渲染
+// 正文分段：代码块 / 标题 / 普通文本（加粗用 ** 标记）
 interface Segment {
   isCode: boolean;
+  isHeading: boolean;
+  level: number;     // 标题级别 1/2/3
   content: string;
+}
+
+// 行内加粗片段
+interface InlineSeg {
+  bold: boolean;
+  text: string;
 }
 
 function splitCodeBlocks(md: string): Segment[] {
@@ -72,13 +80,36 @@ function splitCodeBlocks(md: string): Segment[] {
   const parts = md.split(/```[\s\S]*?```/);
   const codes = md.match(/```[\s\S]*?```/g) || [];
   for (let i = 0; i < parts.length; i++) {
-    if (parts[i].trim().length > 0) {
-      segs.push({ isCode: false, content: parts[i] });
+    // 文本部分按行拆，识别标题行（# ## ###）
+    const lines = parts[i].split('\n');
+    for (const line of lines) {
+      if (line.trim().length === 0) {
+        continue;
+      }
+      const hm = line.match(/^(#{1,3})\s+(.+)$/);
+      if (hm) {
+        segs.push({ isCode: false, isHeading: true, level: hm[1].length, content: hm[2].trim() });
+      } else {
+        segs.push({ isCode: false, isHeading: false, level: 0, content: line });
+      }
     }
     if (i < codes.length) {
       const code = codes[i].replace(/^```[^\n]*\n?/, '').replace(/```$/, '');
-      segs.push({ isCode: true, content: code });
+      segs.push({ isCode: true, isHeading: false, level: 0, content: code });
     }
+  }
+  return segs;
+}
+
+// 拆分行内加粗：**text** → [{bold:false,text}, {bold:true,text}, ...]
+function splitBold(line: string): InlineSeg[] {
+  const segs: InlineSeg[] = [];
+  const parts = line.split(/\*\*([^*]+)\*\*/);
+  for (let i = 0; i < parts.length; i++) {
+    if (parts[i].length === 0) {
+      continue;
+    }
+    segs.push({ bold: (i % 2 === 1), text: parts[i] });
   }
   return segs;
 }
@@ -187,13 +218,24 @@ struct MessageBubble {
                   .wordBreak(WordBreak.BREAK_ALL)
                   .constraintSize({ maxWidth: '100%' })
                   .margin({ top: 2, bottom: 2 })
-              } else {
+              } else if (seg.isHeading) {
                 Text(seg.content)
-                  .fontSize(15)
+                  .fontSize(seg.level === 1 ? 20 : (seg.level === 2 ? 18 : 16))
+                  .fontWeight(FontWeight.Bold)
                   .fontColor(this.isDark ? '#E0E0E0' : '#222222')
-                  .lineHeight(22)
+                  .margin({ top: 8, bottom: 2 })
+              } else {
+                Text() {
+                  ForEach(splitBold(seg.content), (b: InlineSeg) => {
+                    Span(b.text)
+                      .fontWeight(b.bold ? FontWeight.Bold : FontWeight.Normal)
+                  }, (b: InlineSeg, idx: number) => idx.toString() + (b.bold ? 'b' : 'n'))
+                }
+                .fontSize(15)
+                .fontColor(this.isDark ? '#E0E0E0' : '#222222')
+                .lineHeight(22)
               }
-            }, (seg: Segment, index: number) => index.toString() + (seg.isCode ? 'c' : 't'))
+            }, (seg: Segment, index: number) => index.toString() + (seg.isCode ? 'c' : (seg.isHeading ? 'h' : 't')))
           }
           // 推理统计
           if (this.msg.stats.length > 0) {
@@ -238,6 +280,7 @@ struct Index {
   @State isDark: boolean = false;               // 深色模式
   @State apiEnabled: boolean = false;           // API 服务开关
   @State apiStatus: string = '未启动';          // API 服务状态
+  @State apiToken: string = '';                 // API 访问令牌（空 = 不鉴权）
   @State showModelManager: boolean = false;      // 模型管理面板
   @State currentModelId: string = 'Qwen3-0.6B-MNN';  // 当前模型
   @State downloadedModels: string[] = [];         // 已下载模型 id 列表
@@ -1025,6 +1068,16 @@ struct Index {
             }
             .width('100%')
             Text('状态：' + this.apiStatus).fontSize(11).fontColor(this.textDimColor()).width('100%')
+            // 访问令牌输入框（空 = 不鉴权）
+            TextInput({ placeholder: '访问令牌（留空不鉴权）', text: this.apiToken })
+              .height(36)
+              .backgroundColor(this.inputBgColor())
+              .fontColor(this.textColor())
+              .placeholderColor(this.textDimColor())
+              .borderRadius(8)
+              .onChange((value: string) => {
+                this.apiToken = value;
+              })
             Text('局域网设备可通过 http://<本机IP>:8080/v1/chat/completions 调用本地模型')
               .fontSize(10)
               .fontColor(this.textFaintColor())
@@ -1251,6 +1304,36 @@ struct Index {
     this.apiServer.setInference((prompt: string): Promise<string> => {
       return mnnllm.submitSync(this.llmSession!, prompt);
     });
+    // 注入流式推理回调（submit + poll 轮询，逐 chunk 回调）
+    this.apiServer.setStreamInference((prompt: string, onChunk: (text: string) => void): Promise<void> => {
+      return new Promise<void>((resolve, reject) => {
+        mnnllm.submit(this.llmSession!, prompt);
+        let timer: number = 0;
+        const doPoll = (): void => {
+          try {
+            const r = mnnllm.poll(this.llmSession!);
+            if (r.chunk.length > 0) {
+              onChunk(r.chunk);
+            }
+            if (r.error.length > 0) {
+              clearInterval(timer);
+              reject(new Error(r.error));
+            }
+            if (r.done) {
+              clearInterval(timer);
+              resolve();
+            }
+          } catch (e) {
+            clearInterval(timer);
+            reject(e as Error);
+          }
+        };
+        doPoll();
+        timer = setInterval(doPoll, 30);
+      });
+    });
+    // 设置访问令牌（空 = 不鉴权）
+    this.apiServer.setAuthToken(this.apiToken.trim());
     const ok = await this.apiServer.start();
     if (ok) {
       this.apiEnabled = true;

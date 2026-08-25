@@ -54,11 +54,27 @@ interface ChatCompletionResponse {
   usage: UsageInfo;
 }
 
+interface StreamChoice {
+  index: number;
+  delta: ChatMessage;
+  finish_reason: string | null;
+}
+
+interface ChatStreamChunk {
+  id: string;
+  object: string;
+  created: number;
+  model: string;
+  choices: StreamChoice[];
+}
+
 export class ApiServer {
   private tcpServer: socket.TCPSocketServer | null = null;
   private config: ApiServerConfig;
   // 推理回调：由 Index 注入（调用 mnnllm.submitSync）
   private inference: ((prompt: string) => Promise<string>) | null = null;
+  // 流式推理回调：由 Index 注入（submit + poll），逐 chunk 回调
+  private streamInference: ((prompt: string, onChunk: (text: string) => void) => Promise<void>) | null = null;
   // 访问令牌（可选）：空串 = 不鉴权
   private authToken: string = '';
 
@@ -68,6 +84,10 @@ export class ApiServer {
 
   setInference(fn: (prompt: string) => Promise<string>): void {
     this.inference = fn;
+  }
+
+  setStreamInference(fn: (prompt: string, onChunk: (text: string) => void) => Promise<void>): void {
+    this.streamInference = fn;
   }
 
   setAuthToken(token: string): void {
@@ -143,6 +163,12 @@ export class ApiServer {
       const rawRequest = this.bytesToString(byteBuffer.slice(0, totalLen));
       byteBuffer.splice(0, totalLen);
 
+      // SSE 流式请求单独处理（边生成边发送）；其余走完整响应
+      if (this.isStreamRequest(rawRequest)) {
+        this.handleStreamRequest(conn, rawRequest);
+        return;
+      }
+
       this.handleRequest(rawRequest).then((response: string) => {
         conn.send({ data: response }).catch((e: Error) => {
           hilog.warn(0x0000, TAG, 'send response failed: %{public}s', e.message);
@@ -188,6 +214,96 @@ export class ApiServer {
     return decoder.decode(new Uint8Array(buf));
   }
 
+  // 判断是否 SSE 流式请求（POST /v1/chat/completions + stream: true）
+  private isStreamRequest(raw: string): boolean {
+    const firstLine = raw.split('\r\n')[0];
+    const parts = firstLine.split(' ');
+    if (parts[0] !== 'POST' || parts[1] !== '/v1/chat/completions') {
+      return false;
+    }
+    const headerEnd = raw.indexOf('\r\n\r\n');
+    if (headerEnd < 0) {
+      return false;
+    }
+    try {
+      const req = JSON.parse(raw.substring(headerEnd + 4)) as ChatCompletionRequest;
+      return req.stream === true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // SSE 流式响应：边生成边发送 data: {...}\n\n，最后 [DONE]
+  private handleStreamRequest(conn: socket.TCPSocketConnection, raw: string): void {
+    // 鉴权
+    if (this.authToken.length > 0) {
+      const authMatch = raw.match(/Authorization:\s*Bearer\s+(\S+)/i);
+      if (!authMatch || authMatch[1] !== this.authToken) {
+        const errResp = this.httpResponse(401, 'application/json', JSON.stringify({ error: 'unauthorized' }));
+        conn.send({ data: errResp }).catch(() => {});
+        conn.close().catch(() => {});
+        return;
+      }
+    }
+    const headerEnd = raw.indexOf('\r\n\r\n');
+    const bodyStr = raw.substring(headerEnd + 4);
+    let req: ChatCompletionRequest;
+    try {
+      req = JSON.parse(bodyStr) as ChatCompletionRequest;
+    } catch (e) {
+      const errResp = this.httpResponse(400, 'application/json', JSON.stringify({ error: 'invalid JSON body' }));
+      conn.send({ data: errResp }).catch(() => {});
+      conn.close().catch(() => {});
+      return;
+    }
+    if (!this.streamInference) {
+      const errResp = this.httpResponse(503, 'application/json', JSON.stringify({ error: 'engine not ready' }));
+      conn.send({ data: errResp }).catch(() => {});
+      conn.close().catch(() => {});
+      return;
+    }
+    const lastUser = req.messages.filter((m: ChatMessage) => m.role === 'user').pop();
+    const prompt = lastUser ? lastUser.content : (req.messages.length > 0 ? req.messages[req.messages.length - 1].content : '');
+    const model = req.model || 'duanyu-local';
+    const chatId = 'chatcmpl-' + Date.now();
+
+    // 发送 SSE 响应头
+    const sseHeader = 'HTTP/1.1 200 OK\r\n' +
+      'Content-Type: text/event-stream\r\n' +
+      'Cache-Control: no-cache\r\n' +
+      'Connection: keep-alive\r\n' +
+      'Access-Control-Allow-Origin: *\r\n' +
+      '\r\n';
+    conn.send({ data: sseHeader }).catch(() => {});
+
+    // 流式推理，逐 chunk 发送
+    this.streamInference(prompt, (chunk: string) => {
+      const delta: ChatMessage = { role: 'assistant', content: chunk };
+      const choice: StreamChoice = { index: 0, delta: delta, finish_reason: null };
+      const chunkObj: ChatStreamChunk = {
+        id: chatId, object: 'chat.completion.chunk',
+        created: Math.floor(Date.now() / 1000), model: model,
+        choices: [choice]
+      };
+      conn.send({ data: 'data: ' + JSON.stringify(chunkObj) + '\n\n' }).catch(() => {});
+    }).then(() => {
+      // 结束 chunk（finish_reason=stop）+ [DONE]
+      const emptyDelta: ChatMessage = { role: 'assistant', content: '' };
+      const stopChoice: StreamChoice = { index: 0, delta: emptyDelta, finish_reason: 'stop' };
+      const stopObj: ChatStreamChunk = {
+        id: chatId, object: 'chat.completion.chunk',
+        created: Math.floor(Date.now() / 1000), model: model,
+        choices: [stopChoice]
+      };
+      conn.send({ data: 'data: ' + JSON.stringify(stopObj) + '\n\n' }).catch(() => {});
+      conn.send({ data: 'data: [DONE]\n\n' }).catch(() => {});
+      conn.close().catch(() => {});
+    }).catch((e: Error) => {
+      conn.send({ data: 'data: {"error":"' + e.message + '"}\n\n' }).catch(() => {});
+      conn.close().catch(() => {});
+    });
+  }
+
   // 路由 + 处理
   private async handleRequest(raw: string): Promise<string> {
     const firstLine = raw.split('\r\n')[0];
@@ -196,7 +312,7 @@ export class ApiServer {
     const method = parts[0];
     const path = parts[1];
 
-    // 鉴权（可选）
+    // 鉴权（可选）：Authorization: Bearer <token>
     if (this.authToken.length > 0) {
       const authMatch = raw.match(/Authorization:\s*Bearer\s+(\S+)/i);
       if (!authMatch || authMatch[1] !== this.authToken) {
