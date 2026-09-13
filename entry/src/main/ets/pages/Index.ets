@@ -12,13 +12,14 @@ const TAG: string = 'MnnChat';
 // 模型直连魔搭社区（ModelScope）下载：resolve 端点 302 重定向到 CDN，再对 CDN 分段下载
 const MODELSCOPE_RESOLVE: string = 'https://modelscope.cn/models/MNN';
 
-// 模型白名单（ModelScope MNN 官方组织全部 17 个 4-bit MNN 模型，2026-08 探测）
+// 模型白名单（硬编码 17 个兜底）+ 魔搭动态列表（刷新按钮拉取）
 interface ModelSpec {
-  id: string;            // 目录名 = ModelScope 模型 ID
+  id: string;            // 目录名 = ModelScope 模型 ID（如 Qwen3-0.6B-MNN）
   displayName: string;   // 显示名
-  files: string[];       // 必需文件清单（README.md/.gitattributes 除外）
-  weightMinBytes: number; // weight 文件最小字节数（防残片误判）
+  files: string[];       // 硬编码模型：必需文件清单；动态模型：空数组（下载时从魔搭拉取）
+  weightMinBytes: number; // 硬编码模型：weight 最小字节数；动态模型：0（下载时从文件清单判断）
   desc: string;          // 描述
+  isDynamic?: boolean;   // 是否动态模型（刷新列表拉来的）
 }
 
 const MB: number = 1024 * 1024;
@@ -46,6 +47,64 @@ const MODEL_LIST: ModelSpec[] = [
   { id: 'glm-4-9b-chat-MNN', displayName: 'GLM-4 9B', files: ['config.json', 'configuration.json', 'embeddings_bf16.bin', 'llm_config.json', 'llm.mnn', 'llm.mnn.json', 'tokenizer.txt', 'llm.mnn.weight'], weightMinBytes: 4444 * MB, desc: '智谱 · 需 10GB+ 内存' },
   { id: 'Baichuan2-7B-Chat-MNN', displayName: 'Baichuan2 7B', files: ['baichuan2-7b-int4.mnn', 'baichuan2-7b-int4.mnn.weight', 'config.json', 'configuration.json', 'embeddings_bf16.bin', 'llm_config.json', 'tokenizer.txt'], weightMinBytes: 3162 * MB, desc: '百川 · 需 8GB+ 内存' }
 ];
+
+// 魔搭模型列表 API（PUT /api/v1/dolphin/models）的响应结构（只取必需字段）
+interface ModelCriterion {
+  category: string;
+  predicate: string;
+  values: string[];
+}
+
+interface ModelListRequest {
+  PageSize: number;
+  PageNumber: number;
+  SortBy: string;
+  Name: string;
+  IncludePrePublish: boolean;
+  Criterion: ModelCriterion[];
+}
+
+interface RemoteModelItem {
+  Name: string;
+  ChineseName: string;
+  Path: string;
+  Downloads: number;
+  License: string;
+}
+
+interface RemoteModelPage {
+  Models: RemoteModelItem[];
+  TotalCount: number;
+}
+
+interface RemoteModelDataInner {
+  Model: RemoteModelPage;
+}
+
+interface RemoteModelData {
+  Code: number;
+  Data: RemoteModelDataInner;
+}
+
+// 魔搭文件清单 API（GET repo/files）的响应结构
+interface RemoteFileItem {
+  Path: string;
+  Size: number;
+}
+
+interface RemoteFileDataInner {
+  Files: RemoteFileItem[];
+}
+
+interface RemoteFileData {
+  Code: number;
+  Data: RemoteFileDataInner;
+}
+
+interface RemoteFileInfo {
+  name: string;
+  size: number;
+}
 
 // 持久化会话结构（与原生多轮 history 独立：UI 层保存完整消息用于展示/恢复）
 interface PersistMessage {
@@ -284,6 +343,8 @@ struct Index {
   @State showModelManager: boolean = false;      // 模型管理面板
   @State currentModelId: string = 'Qwen3-0.6B-MNN';  // 当前模型
   @State downloadedModels: string[] = [];         // 已下载模型 id 列表
+  @State modelList: ModelSpec[] = MODEL_LIST;      // 模型列表（硬编码 17 个兜底，刷新后为魔搭动态列表）
+  @State refreshingModels: boolean = false;        // 正在刷新魔搭列表
   @State downloadingModel: string = '';           // 正在下载的模型 id
   @State downloadProgress: number = 0;            // 当前文件下载进度 0-100
   @State downloadFileName: string = '';           // 当前下载的文件名
@@ -310,6 +371,9 @@ struct Index {
 
   // 判断某个模型是否已完整下载（防残片误判）
   private isModelDownloaded(spec: ModelSpec): boolean {
+    if (spec.files.length === 0) {
+      return false;   // 动态模型未拉取文件清单，视为未下载
+    }
     const dir: string = this.context.filesDir + '/models/' + spec.id;
     for (const f of spec.files) {
       const p: string = dir + '/' + f;
@@ -332,7 +396,7 @@ struct Index {
   // 刷新已下载模型列表
   private refreshDownloadedModels(): void {
     const list: string[] = [];
-    for (const spec of MODEL_LIST) {
+    for (const spec of this.modelList) {
       if (this.isModelDownloaded(spec)) {
         list.push(spec.id);
       }
@@ -340,8 +404,121 @@ struct Index {
     this.downloadedModels = list;
   }
 
+  // 从魔搭拉取 MNN 组织的模型列表（PUT /api/v1/dolphin/models + Criterion 过滤组织，分页拉全量）
+  private async fetchRemoteModels(): Promise<ModelSpec[]> {
+    const criterion: ModelCriterion = { category: 'organizations', predicate: 'contains', values: ['MNN'] };
+    // 名称过滤：排除多模态/音频/OCR/特殊微调/草稿加速/嵌入/重排/数字人/翻译等非聊天模型
+    const EXCLUDE: RegExp = /(VL|OCR|Audio|GUI|Extract|Math|RAG|Tool|Transcript|PII|JP|Exp|Dflash|Draft|Embedding|Guard|Eagle|Omni|Reranker|vits|piper|Avatar|Talker|bge|Prover|reader-lm|CPM-V|MT-)/i;
+    const result: ModelSpec[] = [];
+    const PAGE_SIZE: number = 100;   // 服务端单页上限 100（传更大也只返回 100）
+    let total: number = 0;
+    for (let page = 1; page <= 5; page++) {
+      let models: RemoteModelItem[] = [];
+      const httpReq = http.createHttp();
+      try {
+        const reqBody: ModelListRequest = {
+          PageSize: PAGE_SIZE, PageNumber: page, SortBy: 'GmtModified', Name: '',
+          IncludePrePublish: true,
+          Criterion: [criterion]
+        };
+        const resp = await httpReq.request('https://modelscope.cn/api/v1/dolphin/models', {
+          method: http.RequestMethod.PUT,
+          header: { 'Content-Type': 'application/json' },
+          extraData: JSON.stringify(reqBody),
+          expectDataType: http.HttpDataType.STRING,
+          readTimeout: 30000
+        });
+        const bodyStr = resp.result as string;
+        hilog.info(0x0000, TAG, 'fetchRemoteModels page=%{public}d: code=%{public}d bodyLen=%{public}d',
+          page, resp.responseCode as number, bodyStr.length);
+        const data = JSON.parse(bodyStr) as RemoteModelData;
+        models = data.Data.Model.Models;
+        total = data.Data.Model.TotalCount;
+      } finally {
+        httpReq.destroy();
+      }
+      if (models.length === 0) {
+        break;
+      }
+      for (const m of models) {
+        const name = m.Name;
+        if (!name.endsWith('-MNN')) {
+          continue;   // 只留 MNN 格式模型
+        }
+        if (EXCLUDE.test(name)) {
+          continue;
+        }
+        result.push({
+          id: name,
+          displayName: name.replace(/-MNN$/, ''),
+          files: [],
+          weightMinBytes: 0,
+          desc: '魔搭 · 动态模型',
+          isDynamic: true
+        });
+      }
+      if (models.length < PAGE_SIZE) {
+        break;   // 最后一页
+      }
+    }
+    hilog.info(0x0000, TAG, 'fetchRemoteModels: total=%{public}d filtered=%{public}d', total, result.length);
+    return result;
+  }
+
+  // 拉取动态模型的文件清单（GET repo/files，注意必须带 /api/v1/ 前缀，否则返回 HTML 页面导致 JSON 解析失败）
+  private async fetchModelFiles(modelId: string): Promise<RemoteFileInfo[]> {
+    const url = 'https://modelscope.cn/api/v1/models/MNN/' + modelId + '/repo/files?Recursive=true&Revision=master';
+    const httpReq = http.createHttp();
+    try {
+      const resp = await httpReq.request(url, {
+        method: http.RequestMethod.GET,
+        expectDataType: http.HttpDataType.STRING,
+        readTimeout: 30000
+      });
+      const bodyStr = resp.result as string;
+      hilog.info(0x0000, TAG, 'fetchModelFiles %{public}s: code=%{public}d bodyLen=%{public}d head=%{public}s',
+        modelId, resp.responseCode as number, bodyStr.length, bodyStr.substring(0, 120));
+      const data = JSON.parse(bodyStr) as RemoteFileData;
+      const files: RemoteFileInfo[] = [];
+      for (const f of data.Data.Files) {
+        const n = f.Path;
+        if (n === 'README.md' || n.includes('.gitattributes')) {
+          continue;
+        }
+        files.push({ name: n, size: f.Size });
+      }
+      hilog.info(0x0000, TAG, 'fetchModelFiles %{public}s: %{public}d files', modelId, files.length);
+      return files;
+    } finally {
+      httpReq.destroy();
+    }
+  }
+
+  // 刷新模型列表：从魔搭拉取，失败保留硬编码兜底
+  private async refreshModelList(): Promise<void> {
+    if (this.refreshingModels) {
+      return;
+    }
+    this.refreshingModels = true;
+    this.statusText = '正在从魔搭社区拉取模型列表…';
+    try {
+      const remote = await this.fetchRemoteModels();
+      if (remote.length > 0) {
+        this.modelList = remote;
+        this.statusText = '已更新：魔搭 ' + remote.length + ' 个可下载模型';
+      } else {
+        this.statusText = '魔搭列表为空，保留本地列表';
+      }
+    } catch (e) {
+      hilog.warn(0x0000, TAG, 'refreshModelList failed: %{public}s', (e as Error).message);
+      this.statusText = '拉取失败，保留本地列表';
+    }
+    this.refreshingModels = false;
+    this.refreshDownloadedModels();
+  }
+
   private async ensureModel(modelId: string): Promise<string> {
-    const spec = MODEL_LIST.find((m: ModelSpec) => m.id === modelId);
+    const spec = this.modelList.find((m: ModelSpec) => m.id === modelId);
     if (!spec) {
       throw new Error('unknown model: ' + modelId);
     }
@@ -355,6 +532,24 @@ struct Index {
       // 目录已存在属正常（鸿蒙 mkdirSync 对已存在目录抛 File exists）
       hilog.info(0x0000, TAG, 'mkdir exists (ok): %{public}s', dir);
     }
+    // 动态模型：先拉取文件清单（files 为空数组）
+    let files = spec.files;
+    let weightMin = spec.weightMinBytes;
+    if (files.length === 0) {
+      hilog.info(0x0000, TAG, 'dynamic model %{public}s: fetching file list', modelId);
+      const remoteFiles = await this.fetchModelFiles(modelId);
+      // 完整性检查：必须含 .mnn 图文件 + weight 权重（防残缺模型如 Qwen3.5-397B 只有 config/README）
+      const hasGraph = remoteFiles.some((f: RemoteFileInfo) => f.name.endsWith('.mnn'));
+      const hasWeight = remoteFiles.some((f: RemoteFileInfo) => f.name.includes('weight'));
+      if (!hasGraph || !hasWeight) {
+        throw new Error(spec.displayName + ' 暂不完整（缺模型文件），无法下载');
+      }
+      files = remoteFiles.map((f: RemoteFileInfo) => f.name);
+      const w = remoteFiles.find((f: RemoteFileInfo) => f.name.includes('weight'));
+      weightMin = w ? Math.floor(w.size * 0.9) : 0;
+      spec.files = files;
+      spec.weightMinBytes = weightMin;
+    }
     // 已完整下载则直接返回
     if (this.isModelDownloaded(spec)) {
       hilog.info(0x0000, TAG, 'model %{public}s already exists in sandbox', modelId);
@@ -362,7 +557,7 @@ struct Index {
     }
     // 下载全部文件
     this.downloadingModel = modelId;
-    for (const f of spec.files) {
+    for (const f of files) {
       this.statusText = '下载 ' + spec.displayName + ' ' + f + '…';
       this.downloadFileName = f;
       this.downloadPercent = 0;
@@ -377,70 +572,49 @@ struct Index {
     return dir;
   }
 
-  // 解析 ModelScope resolve 端点的 CDN 直链（302 Location 头）
-  private async resolveCdnUrl(modelId: string, fileName: string): Promise<string> {
-    const url = MODELSCOPE_RESOLVE + '/' + modelId + '/resolve/master/' + fileName;
-    const httpReq = http.createHttp();
-    try {
-      const resp = await httpReq.request(url, {
-        method: http.RequestMethod.GET,
-        maxRedirects: 0,   // 不跟随 302，拿到 Location 头
-        expectDataType: http.HttpDataType.ARRAY_BUFFER,
-        readTimeout: 30000
-      });
-      const loc: string = resp.header['location'] as string;
-      if (loc && loc.length > 0) {
-        return loc;
-      }
-      return url;
-    } catch (e) {
-      return url;   // 拿不到 Location（抛 2300047 等）就回退原 URL
-    } finally {
-      httpReq.destroy();
-    }
-  }
-
   private async downloadFile(modelId: string, fileName: string, dest: string, onProgress?: (percent: number) => void): Promise<void> {
     const file = fs.openSync(dest, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE | fs.OpenMode.TRUNC);
+    const resolveUrl = MODELSCOPE_RESOLVE + '/' + modelId + '/resolve/master/' + fileName;
     try {
-      const isWeight: boolean = fileName.includes('weight');
-      if (!isWeight) {
-        // 小文件：resolve 端点直接 200 返回完整内容，不发 Range（主站对 Range 有 bug：返回错误 Content-Length 导致 partial file）
-        const url = MODELSCOPE_RESOLVE + '/' + modelId + '/resolve/master/' + fileName;
-        hilog.info(0x0000, TAG, 'downloading %{public}s', fileName);
-        const httpReq = http.createHttp();
-        try {
-          const resp = await httpReq.request(url, {
-            method: http.RequestMethod.GET,
-            expectDataType: http.HttpDataType.ARRAY_BUFFER,
-            readTimeout: 60000
-          });
-          const code: number = resp.responseCode as number;
-          if (code !== 200) {
-            throw new Error('HTTP ' + code + ' for ' + fileName);
-          }
+      // 探测 + 普通文件直下（maxRedirects:0 = 不跟随重定向）：
+      //   返回 200 → 普通文件（非 LFS），响应体就是完整内容，直接写盘
+      //   抛 2300047（重定向超限）→ LFS 大文件，改走 Range 分段（http 库会跟随 302 到 CDN，CDN 正确返回 206）
+      let handled: boolean = false;
+      const probeReq = http.createHttp();
+      try {
+        const resp = await probeReq.request(resolveUrl, {
+          method: http.RequestMethod.GET,
+          maxRedirects: 0,
+          expectDataType: http.HttpDataType.ARRAY_BUFFER,
+          readTimeout: 60000
+        });
+        if (resp.responseCode === 200) {
           const buf: ArrayBuffer = resp.result as ArrayBuffer;
           fs.writeSync(file.fd, buf);
           if (onProgress) {
             onProgress(100);
           }
-        } finally {
-          httpReq.destroy();
+          handled = true;
+          hilog.info(0x0000, TAG, 'downloaded %{public}s (direct) total=%{public}d bytes', fileName, buf.byteLength);
         }
-        hilog.info(0x0000, TAG, 'downloaded %{public}s', fileName);
-      } else {
-        // weight 大文件：resolve 拿 CDN 直链（支持 Range），再 32MB 分段下载
+      } catch (e) {
+        hilog.info(0x0000, TAG, '%{public}s is LFS (redirect), switching to range download', fileName);
+      } finally {
+        probeReq.destroy();
+      }
+
+      if (!handled) {
+        // LFS 大文件：对 resolve 端点发 Range（http 库自动跟随 302 到 CDN，CDN 返回 206）
         const CHUNK: number = 32 * 1024 * 1024;
-        const cdnUrl = await this.resolveCdnUrl(modelId, fileName);
         let offset: number = 0;
         let totalSize: number = -1;
-        hilog.info(0x0000, TAG, 'downloading %{public}s (cdn)', fileName);
+        hilog.info(0x0000, TAG, 'downloading %{public}s (range)', fileName);
         while (true) {
           const end: number = offset + CHUNK - 1;
           const httpReq = http.createHttp();
           let resp: http.HttpResponse;
           try {
-            resp = await httpReq.request(cdnUrl, {
+            resp = await httpReq.request(resolveUrl, {
               method: http.RequestMethod.GET,
               header: { 'Range': 'bytes=' + offset + '-' + end.toString() },
               expectDataType: http.HttpDataType.ARRAY_BUFFER,
@@ -489,7 +663,7 @@ struct Index {
     } catch (e) {
       fs.closeSync(file);
       hilog.error(0x0000, TAG, 'download failed %{public}s: %{public}s', fileName, (e as Error).message);
-      throw new Error('download failed: ' + (e as Error).message);
+      throw new Error(fileName + ' 下载失败: ' + (e as Error).message);
     }
   }
 
@@ -547,7 +721,7 @@ struct Index {
     const dir: string = this.context.filesDir + '/models/' + modelId;
     try {
       // 逐个删文件
-      const spec = MODEL_LIST.find((m: ModelSpec) => m.id === modelId);
+      const spec = this.modelList.find((m: ModelSpec) => m.id === modelId);
       if (spec) {
         for (const f of spec.files) {
           try {
@@ -1148,15 +1322,27 @@ struct Index {
           Row() {
             Text('模型管理').fontSize(18).fontWeight(FontWeight.Bold).fontColor(this.textColor())
             Blank()
+            // 刷新列表：从魔搭拉取最新模型列表（失败保留硬编码兜底）
+            Text(this.refreshingModels ? '刷新中…' : '刷新列表')
+              .fontSize(14)
+              .fontColor('#0A59F7')
+              .onClick(() => {
+                this.refreshModelList();
+              })
+              .margin({ right: 16 })
             Text('关闭').fontSize(14).fontColor('#0A59F7')
               .onClick(() => {
                 this.showModelManager = false;
               })
           }
           .width('100%')
+          Text('已显示 ' + this.modelList.length + ' 个模型（点「刷新列表」从魔搭社区拉取最新）')
+            .fontSize(10)
+            .fontColor(this.textFaintColor())
+            .width('100%')
 
           List() {
-            ForEach(MODEL_LIST, (spec: ModelSpec) => {
+            ForEach(this.modelList, (spec: ModelSpec) => {
               ListItem() {
                 Column({ space: 6 }) {
                   Row() {
@@ -1190,7 +1376,7 @@ struct Index {
   }
 
   modelDisplayName(): string {
-    const spec = MODEL_LIST.find((m: ModelSpec) => m.id === this.currentModelId);
+    const spec = this.modelList.find((m: ModelSpec) => m.id === this.currentModelId);
     return spec ? spec.displayName : this.currentModelId;
   }
 

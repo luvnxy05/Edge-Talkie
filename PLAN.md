@@ -91,3 +91,15 @@ HarmonyOS NEXT 原生本地大模型聊天应用（LM Studio 风格）：
 8. 签名前准备：AGC 创建应用 + 设备 UDID 注册（UDID=`4D4B96028CADF247AE80E474BE94CEDA4AC26D122028E9A2A61822E79E2E1BE1` 已知）
 
 **关键文件**：prebuilt/harmony/libs/{libMNN.so, libc++_shared.so} + include/llm/{llm.hpp, reranker.hpp}（NAPI 桥接头文件就绪）
+
+## 9. v1.1 增量目标（待做）
+
+### 多模态支持（用户确认重要）
+- **背景**：MNN 引擎已内置多模态接口（`llm.hpp` 的 `MultimodalPrompt`，含 `PromptImagePart`（VARP 图像张量+宽高）/`PromptAudioPart`（音频）），但端语当前只用纯文本 `response(ChatMessages)`。
+- **判断**：聊天对话纯文本够用；但 OpenAI 兼容 API 需处理 `messages.content` 数组里的 `image_url`（多模态 Agent 会发图），否则会丢图/报错，不能算完整兼容。
+- **路径**：① 选 VLM 模型（MNN 组织有 `LFM2-VL`/`GUI-Owl`/`GLM-OCR`/`gemma` 多模态等）② C++ 加 `response(MultimodalPrompt)` + 图像预处理成 VARP 张量 ③ ApiServer 解析 `image_url` 下载/解码传 C++。
+
+### 其他 v1 收尾待办
+- Release 发布 HAP（GitHub Release 上传签名 HAP）
+- 自动更新模型列表（`PUT /api/v1/dolphin/models` + `Criterion` 过滤，替换硬编码 17 个）
+- Markdown 列表/表格/行内代码渲染
