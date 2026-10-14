@@ -10,6 +10,7 @@
 
 #include <vector>
 #include <memory>
+#include <mutex>
 #include <string>
 #include <fstream>
 #include <sstream>
@@ -79,10 +80,24 @@ struct MNN_PUBLIC PromptAudioPart {
     MNN::Express::VARP waveform;
 };
 
+struct MNN_PUBLIC PromptVideoPart {
+    // file_path is decoded and sampled by Omni using the model video_fps/video_max_frames config.
+    std::string file_path;
+    // In-memory frames are expected to be already sampled in chronological order; timestamps, when provided,
+    // are seconds for those sampled frames.
+    std::vector<MNN::Express::VARP> frames;
+    std::vector<float> timestamps;
+    int width = 0;
+    int height = 0;
+    float fps = 2.0f;
+    int max_frames = 768;
+};
+
 struct MNN_PUBLIC MultimodalPrompt {
     std::string prompt_template;
     std::map<std::string, PromptImagePart> images;
     std::map<std::string, PromptAudioPart> audios;
+    std::map<std::string, PromptVideoPart> videos;
 };
 
 enum TuneType {
@@ -127,6 +142,11 @@ struct LlmContext {
     LlmStatus status = LlmStatus::NOT_LOADED;
     // log buffer (per-instance, no locking needed)
     std::string log_buffer;
+    // Guards history_tokens / output_tokens / generate_str / end_with against
+    // concurrent access: the decode loop mutates them while other threads
+    // (e.g. pymnn get_context) may read; unsynchronized vector/string
+    // reallocation causes use-after-free.
+    mutable std::mutex mutex;
 };
 struct GenerationParams;
 class MNN_PUBLIC Llm {
@@ -195,8 +215,14 @@ public:
     const LlmContext* getContext() const {
         return mContext.get();
     }
+    const std::shared_ptr<Express::Executor>& getExecutor() const {
+        return mExecutor;
+    }
     virtual void setWavformCallback(std::function<bool(const float*, size_t, bool)> callback) {}
     virtual void generateWavform() {}
+    virtual bool generateTTS(const std::string& text, const std::string& language = "english", int max_new_tokens = -1,
+                             const std::string& ref_audio = "");
+
 protected:
     void setChatTemplate();
     void initRuntime();
@@ -267,7 +293,7 @@ public:
     static float cos_sim(Express::VARP var0, Express::VARP var1);
     virtual bool load() override;
 
-    Express::VARP ids_embedding(const std::vector<int>& ids);
+    virtual Express::VARP ids_embedding(const std::vector<int>& ids);
     Express::VARP txt_embedding(const std::string& txt);
     std::vector<Express::VARP> forwardRaw(Express::VARP hiddenState, Express::VARP mask, Express::VARP inputPos, Express::VARPS extraArgs = {}) override;
     int dim() const;

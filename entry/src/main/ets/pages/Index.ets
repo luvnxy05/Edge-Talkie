@@ -371,10 +371,26 @@ struct Index {
 
   // 判断某个模型是否已完整下载（防残片误判）
   private isModelDownloaded(spec: ModelSpec): boolean {
-    if (spec.files.length === 0) {
-      return false;   // 动态模型未拉取文件清单，视为未下载
-    }
     const dir: string = this.context.filesDir + '/models/' + spec.id;
+    // 动态模型（files 清单为空）：扫描目录判断——含 .mnn 图文件 + 大 weight 即视为已下载
+    if (spec.files.length === 0) {
+      try {
+        const names: string[] = fs.listFileSync(dir);
+        let hasGraph: boolean = false;
+        let hasWeight: boolean = false;
+        for (const n of names) {
+          if (n.endsWith('.mnn')) {
+            hasGraph = true;
+          }
+          if (n.includes('weight') && fs.statSync(dir + '/' + n).size > MB) {
+            hasWeight = true;
+          }
+        }
+        return hasGraph && hasWeight;
+      } catch (e) {
+        return false;   // 目录不存在
+      }
+    }
     for (const f of spec.files) {
       const p: string = dir + '/' + f;
       try {
@@ -393,7 +409,7 @@ struct Index {
     return true;
   }
 
-  // 刷新已下载模型列表
+  // 刷新已下载模型列表（并把已下载的排到前面）
   private refreshDownloadedModels(): void {
     const list: string[] = [];
     for (const spec of this.modelList) {
@@ -402,6 +418,21 @@ struct Index {
       }
     }
     this.downloadedModels = list;
+    this.sortModelList();
+  }
+
+  // 已下载的模型置顶（其余保持原有顺序）
+  private sortModelList(): void {
+    const downloaded: ModelSpec[] = [];
+    const others: ModelSpec[] = [];
+    for (const m of this.modelList) {
+      if (this.downloadedModels.includes(m.id)) {
+        downloaded.push(m);
+      } else {
+        others.push(m);
+      }
+    }
+    this.modelList = downloaded.concat(others);
   }
 
   // 从魔搭拉取 MNN 组织的模型列表（PUT /api/v1/dolphin/models + Criterion 过滤组织，分页拉全量）
@@ -682,8 +713,18 @@ struct Index {
           this.refreshDownloadedModels();
           hilog.info(0x0000, TAG, 'Engine loaded OK');
         } catch (e) {
-          hilog.error(0x0000, TAG, 'Engine load failed: %{public}s, msg=%{public}s', JSON.stringify(e), (e as Error).message);
-          this.statusText = '引擎加载失败';
+          const errDetail: string = (e as Error).message;
+          hilog.error(0x0000, TAG, 'Engine load failed: %{public}s, msg=%{public}s', JSON.stringify(e), errDetail);
+          // 写错误详情到沙箱文件（hilog 缓冲会冲掉、落盘文件是二进制格式，写文件便于排查）
+          try {
+            const ef = fs.openSync(this.context.filesDir + '/engine_error.log',
+              fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE | fs.OpenMode.TRUNC);
+            fs.writeSync(ef.fd, 'model=' + this.currentModelId + '\nerror=' + errDetail + '\n');
+            fs.closeSync(ef);
+          } catch (e2) {
+            hilog.warn(0x0000, TAG, 'write engine_error.log failed');
+          }
+          this.statusText = '引擎加载失败: ' + errDetail;
           this.engineReady = false;
         }
       }, 100);
@@ -1272,6 +1313,8 @@ struct Index {
               this.refreshDownloadedModels();
               this.showModelManager = true;
               this.showSettings = false;
+              // 打开面板时自动从魔搭拉取最新列表（异步；拉取失败则保留当前列表作为兜底）
+              this.refreshModelList();
             })
           }
           .width('100%')
